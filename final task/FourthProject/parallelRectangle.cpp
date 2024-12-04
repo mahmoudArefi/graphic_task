@@ -7,11 +7,11 @@
 #include <cmath>
 #include <vector>
 #include "texture.h"
+#include "myTexture.h"
 
-extern int image3;
+extern MYTEXTURE myTextureObj ;
 extern int SKYLEFT;
-std::vector<int> comedinaTexture;
-std::vector<int> staircaseTexture;
+
 
 ParallelRectangle::ParallelRectangle() {
     // Constructor
@@ -26,10 +26,14 @@ void ParallelRectangle::drawParallelRectangle(float h, float w, float l, Texture
     if (textureType != TextureType::null) {
 			glEnable(GL_TEXTURE_2D);
         if (textureType == comedina) {
-            textureList = comedinaTexture;
+            textureList = myTextureObj.comedinaTexture;
         } else if (textureType == Staircase) {
-            textureList = staircaseTexture;
-        }
+            textureList = myTextureObj.staircaseTexture;
+        } else if (textureType == wardrobe  ){
+			textureList = myTextureObj.wardrobeTexture ; 
+		}
+
+
     }
 
 

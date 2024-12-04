@@ -2,7 +2,7 @@
 #define MYCLASS_H
 #include <vector>
 
-enum TextureType { comedina, Staircase, null};
+enum TextureType { comedina, Staircase,wardrobe , null};
 
  
  
@@ -10,8 +10,7 @@ class ParallelRectangle {
 public:
     ParallelRectangle();                 // Constructor 
     void drawParallelRectangle(float h,float w,float l,TextureType textureType = TextureType::null ,  bool withFace = false);       // Method to print a message
-    
-	
+
 };
 
 

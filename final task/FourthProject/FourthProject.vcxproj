@@ -66,17 +66,25 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="comedina.cpp" />
+    <ClCompile Include="myPolygon.cpp" />
+    <ClCompile Include="myTexture.cpp" />
     <ClCompile Include="parallelRectangle.cpp" />
     <ClCompile Include="roomWalls.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="table.cpp" />
     <ClCompile Include="texture.cpp" />
+    <ClCompile Include="wardrobe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="comedina.h" />
+    <ClInclude Include="myPolygon.h" />
+    <ClInclude Include="myTexture.h" />
     <ClInclude Include="parallelRectangle.h" />
     <ClInclude Include="roomWalls.h" />
+    <ClInclude Include="table.h" />
     <ClInclude Include="texture.h" />
+    <ClInclude Include="wardrobe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

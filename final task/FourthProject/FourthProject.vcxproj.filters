@@ -45,6 +45,18 @@
     <ClCompile Include="roomWalls.cpp">
       <Filter>Source Files\project_bodies</Filter>
     </ClCompile>
+    <ClCompile Include="wardrobe.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="myPolygon.cpp">
+      <Filter>Source Files\project_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="myTexture.cpp">
+      <Filter>Source Files\project_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="table.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texture.h">
@@ -61,6 +73,18 @@
     </ClInclude>
     <ClInclude Include="roomWalls.h">
       <Filter>Header Files\project_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="wardrobe.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="myPolygon.h">
+      <Filter>Header Files\project_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="myTexture.h">
+      <Filter>Header Files\project_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="table.h">
+      <Filter>Header Files\special_objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

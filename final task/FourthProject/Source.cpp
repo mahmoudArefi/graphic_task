@@ -13,8 +13,12 @@
 #include "comedina.h"
 #include <windows.h>
 #include <iostream>
- 
-
+#include "wardrobe.h"
+#include "myPolygon.h"
+#include "myTexture.h"
+#include <cmath>
+#include <GL/gl.h>
+#include "table.h"
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
@@ -228,35 +232,36 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 void Key(bool* keys, float speed)
 {
 	if (keys['S'])
-		MyCamera.RotateX(-4 * speed);
+		MyCamera.RotateX(-6 * speed);
 	if (keys['W'])
-		MyCamera.RotateX(4* speed);
+		MyCamera.RotateX(6* speed);
 	if (keys['D'])
-		MyCamera.RotateY(-4 * speed);
+		MyCamera.RotateY(-6 * speed);
 	if (keys['Z'])
-		MyCamera.RotateZ(4* speed);
+		MyCamera.RotateZ(6* speed);
 	if (keys['X'])
-		MyCamera.RotateZ(-4 * speed);
+		MyCamera.RotateZ(-6 * speed);
 	if (keys['A'])
-		MyCamera.RotateY(4 * speed);
+		MyCamera.RotateY(6 * speed);
 	if (keys[VK_UP])
-		MyCamera.MoveForward(1 * speed);
+		MyCamera.MoveForward(4 * speed);
 	if (keys[VK_DOWN])
-		MyCamera.MoveForward(-1 * speed);
+		MyCamera.MoveForward(-4 * speed);
 	if (keys[VK_RIGHT])
-		MyCamera.MoveRight(1 * speed);
+		MyCamera.MoveRight(4 * speed);
 	if (keys[VK_LEFT])
-		MyCamera.MoveRight(-1 * speed);
+		MyCamera.MoveRight(-4 * speed);
 	if (keys['O'])
-		MyCamera.MoveUpward(1 * speed);
+		MyCamera.MoveUpward(4 * speed);
 	if (keys['L'])
-		MyCamera.MoveUpward(-1 * speed);
+		MyCamera.MoveUpward(-4 * speed);
 	
 }
- int image3;
- extern std::vector<int> staircaseTexture ; 
- extern std::vector<int> comedinaTexture  ; 
-
+ 
+ //extern std::vector<int> staircaseTexture ; 
+ //extern std::vector<int> comedinaTexture  ; 
+ //extern std::vector<int> wardrobeTexture ; 
+ MYTEXTURE myTextureObj ; 
 
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
@@ -268,35 +273,24 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 	 
+	myTextureObj = MYTEXTURE();
+	myTextureObj.InitAllTexture();
 	
 	 
 	glEnable(GL_TEXTURE_2D);
-	image = LoadTexture("textures\\drawerSide.bmp", 255);
-	image3 = LoadTexture("textures\\drawerFace.bmp", 255);
-	
-	comedinaTexture.assign(6, image);
-    staircaseTexture.assign(6, image3);
-	 
+ 
+
 	AllocConsole();
 freopen("CONOUT$", "w", stdout);
 freopen("CONIN$", "r", stdin);
  
 
-	for(int i = 0 ; i<6 ; i++)
-           {staircaseTexture[i] = image;}
-	staircaseTexture[3] = image3;
 
 
-	for(int i = 0 ; i<6 ; i++ ) {
-		comedinaTexture[i] = LoadTexture("textures\\comedinaTexture.bmp", 255); 
-	}
 
-	for(int i = 0 ; i<6 ; i++ ){
-		std::cout<< i << " : "<<  comedinaTexture[i] << std::endl; 
-	}
-		for(int i = 0 ; i<6 ; i++ ){
-		std::cout<< i << " : "<<  staircaseTexture[i] << std::endl; 
-	}
+	
+
+
 
 	/*image = LoadTexture("back.bmp", 255);
 	image2 = LoadTexture("DU icon.bmp");*/
@@ -321,21 +315,47 @@ freopen("CONIN$", "r", stdin);
 }
 
 	 
-void testFunction(int texture){
-	glPushMatrix();
-    glEnable(GL_TEXTURE_2D);
-    glBindTexture(GL_TEXTURE_2D, texture);    
-    glBegin(GL_QUADS);
 
-        // Correct texture coordinates and vertices
-        glTexCoord2f(0.0f, 0.0f); glVertex3f(-0.0f, -0.0f, 0.0f);  // Bottom-left
-        glTexCoord2f(1.0f, 0.0f); glVertex3f(0.0f, -0.0f, 0.0f);   // Bottom-right
-        glTexCoord2f(1.0f, 1.0f); glVertex3f(0.0f, 0.0f, 0.0f);    // Top-right
-        glTexCoord2f(0.0f, 1.0f); glVertex3f(-0.0f, 0.0f, 0.0f);   // Top-left
+void drawCylinder(float radius, float height, int segments, float red, float green, float blue) {
+    glColor3f(red, green, blue); // Set color
+     //float Pz = 3.14f;
 
+    // Draw cylinder sides
+    glBegin(GL_QUAD_STRIP);
+    for (int i = 0; i <= segments; ++i) {
+        float angle = 2 * PI * i / segments;
+        float x = radius * cos(angle);
+        float z = radius * sin(angle);
+
+        // Texture coordinates and vertices
+        glTexCoord2f((float)i / segments, 0.0f); glVertex3f(x, 0.0f, z);
+        glTexCoord2f((float)i / segments, 1.0f); glVertex3f(x, height, z);
+    }
     glEnd();
-    glDisable(GL_TEXTURE_2D);
-glPopMatrix();
+
+    // Draw top circle
+    glBegin(GL_TRIANGLE_FAN);
+    glTexCoord2f(0.5f, 0.5f); glVertex3f(0.0f, height, 0.0f); // Center
+    for (int i = 0; i <= segments; ++i) {
+        float angle = 2 * PI * i / segments;
+        float x = radius * cos(angle);
+        float z = radius * sin(angle);
+        glTexCoord2f(0.5f + 0.5f * cos(angle), 0.5f + 0.5f * sin(angle));
+        glVertex3f(x, height, z);
+    }
+    glEnd();
+
+    // Draw bottom circle
+    glBegin(GL_TRIANGLE_FAN);
+    glTexCoord2f(0.5f, 0.5f); glVertex3f(0.0f, 0.0f, 0.0f); // Center
+    for (int i = 0; i <= segments; ++i) {
+        float angle = 2 * PI * i / segments;
+        float x = radius * cos(angle);
+        float z = radius * sin(angle);
+        glTexCoord2f(0.5f + 0.5f * cos(angle), 0.5f + 0.5f * sin(angle));
+        glVertex3f(x, 0.0f, z);
+    }
+    glEnd();
 }
 
 int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
@@ -345,18 +365,27 @@ int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 
 	MyCamera.Render();
 	Key(keys, 0.05);
-	for (size_t i = 0; i < comedinaTexture.size(); ++i) {
-    testFunction(comedinaTexture[i]) ;
-	    testFunction(staircaseTexture[i]) ;
 
-             }
+	glTranslatef(0,-8 , 1 ) ;
+
+	//drawCylinder(1.0f, 2.0f, 32, 1.0f, 0.0f, 0.0f); // Red cylinder
+
+	TABLE table ; 
+	table.draw(1,5,4);
 
 
-    glRotatef(44,1,0,0);
+    //glRotatef(44,1,0,0);
 
 	COMEDINA comedina ;
-	comedina.draw();
+	//comedina.draw();
 
+
+	WARDROBE wardrobe ;
+	//wardrobe.draw(8,6,4) ;
+
+	 MYPOLYGON myPolygon ; 
+	 //myPolygon.drawPolygon(0, 0 , 5 ,3 ,image3 ) ;
+	 
 
 	//Draw_Skybox(0, 0, 0, 100, 100, 100);
 
