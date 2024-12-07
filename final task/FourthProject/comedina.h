@@ -4,14 +4,15 @@
 
 class COMEDINA {
 private:
-    float rotateAngle; 
+    int staircaseToOpenNum ; 
     float h, w, l; 
     ParallelRectangle parallelRectangleObject ; // Create the rectangle object
     void drawStaircase(int rank);
 
 public:
-    COMEDINA(float initH = 5.0f, float initW = 4.0f, float initL = 4.0f); // Constructor with default values
-    void draw();              // Method to draw the object with rotation
+    COMEDINA(); // Constructor with default values
+    void draw(float h , float w , float l);              // Method to draw the object with rotation
+	void openOrCloseStaircase(int sRank ) ;
 };
 
 #endif // COMEDINA_H

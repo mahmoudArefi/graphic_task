@@ -8,7 +8,7 @@
 class MYPOLYGON {
 public:
     MYPOLYGON();                 // Constructor 
-    void drawPolygon(float x, float y,float h,float w,int textureNum = 0 );       // Method to print a message
+    void drawPolygon(float h,float w,int textureNum = 0 );       // Method to print a message
     
 	
 };

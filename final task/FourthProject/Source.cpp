@@ -50,9 +50,7 @@ GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize Th
 }
 
 Camera MyCamera; // عمل اوبجيكت من كلاس الكاميرا
-//
-int  image, image2; // تمثيل ال تيكستشير 
-
+ 
 // skybox
 int SKYFRONT, SKYBACK, SKYLEFT, SKYRIGHT, SKYUP, SKYDOWN;
 
@@ -229,6 +227,9 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 }
 
 
+ WARDROBE wardrobe245 ;
+ WARDROBE wardrobe222 ;
+ COMEDINA comedina123 ;
 void Key(bool* keys, float speed)
 {
 	if (keys['S'])
@@ -255,6 +256,16 @@ void Key(bool* keys, float speed)
 		MyCamera.MoveUpward(4 * speed);
 	if (keys['L'])
 		MyCamera.MoveUpward(-4 * speed);
+	if (keys['0'])
+		wardrobe222.openOrCloseDoors() ; 
+	if (keys['1'])
+		comedina123.openOrCloseStaircase(1);
+		if (keys['2'])
+		comedina123.openOrCloseStaircase(2);
+			if (keys['3'])
+		comedina123.openOrCloseStaircase(3);
+			if(keys['q'])
+				comedina123.openOrCloseStaircase(0) ;
 	
 }
  
@@ -263,6 +274,8 @@ void Key(bool* keys, float speed)
  //extern std::vector<int> wardrobeTexture ; 
  MYTEXTURE myTextureObj ; 
 
+
+ 
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
 	 
@@ -273,16 +286,18 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
 	 
+ 
 	myTextureObj = MYTEXTURE();
 	myTextureObj.InitAllTexture();
 	
+
 	 
 	glEnable(GL_TEXTURE_2D);
  
 
 	AllocConsole();
-freopen("CONOUT$", "w", stdout);
-freopen("CONIN$", "r", stdin);
+   freopen("CONOUT$", "w", stdout);
+   freopen("CONIN$", "r", stdin);
  
 
 
@@ -358,6 +373,13 @@ void drawCylinder(float radius, float height, int segments, float red, float gre
     glEnd();
 }
 
+
+
+//animation variables 
+float wardrobeDoorRotateAngle = 0 ; 
+
+RoomWalls roomWalls ; 
+
 int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -366,72 +388,20 @@ int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	MyCamera.Render();
 	Key(keys, 0.05);
 
-	glTranslatef(0,-8 , 1 ) ;
-
+	glTranslatef(0,0 , -7 ) ;
+	glRotatef(20, 1 , 0 , 0 ) ;
 	//drawCylinder(1.0f, 2.0f, 32, 1.0f, 0.0f, 0.0f); // Red cylinder
-
 	TABLE table ; 
-	table.draw(1,5,4);
-
-
-    //glRotatef(44,1,0,0);
-
-	COMEDINA comedina ;
-	//comedina.draw();
-
-
-	WARDROBE wardrobe ;
-	//wardrobe.draw(8,6,4) ;
-
-	 MYPOLYGON myPolygon ; 
-	 //myPolygon.drawPolygon(0, 0 , 5 ,3 ,image3 ) ;
-	 
-
+	//table.draw(5,8,6);
+	    roomWalls.drawHouse();
 	//Draw_Skybox(0, 0, 0, 100, 100, 100);
-
-	
-	
-    
-	/*glEnable(GL_TEXTURE_2D);
-     	glBindTexture(GL_TEXTURE_2D, image);
-           drawMyCylinder(quadric, 0.0f, 0.0f, 0.0f, 1, 1, 5, 90.0f, 0.0f, 0.0f);
-	glDisable(GL_TEXTURE_2D);
-*/
-	
-	//
-	
-	/*glPushMatrix();
-	glColor3f(1, 1, 1);
-		glEnable(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, image3);
-				auxSolidSphere(1);
-		glDisable(GL_TEXTURE_2D);
-	glPopMatrix();
-*/
-
-
+	//wardrobe222.draw(4.8, 6.4 ,3.2);
+	//glTranslatef(10,0 , 0 ) ;
+	//	wardrobe222.draw(8 ,9 ,5);
 
 
 	
-	//glEnable(GL_TEXTURE_2D);
-	//	glBindTexture(GL_TEXTURE_2D, staircaseTexture[0]);
-	//		glBegin(GL_QUADS);
-	//			glTexCoord2f(0, 0);       glVertex3f(5, -5, -4);
-	//			glTexCoord2f(-1, 0);       glVertex3f(5, 5, -4);
-	//			glTexCoord2f(-1, -1);       glVertex3f(-5, 5, -4);
-	//			glTexCoord2f(0, -1);       glVertex3f(-5, -5, -4);
-	//		glEnd();
-	//glDisable(GL_TEXTURE_2D);
-	//
-	//glEnable(GL_TEXTURE_2D);
-	//	glBindTexture(GL_TEXTURE_2D, SKYBACK);
-	//		glBegin(GL_QUADS);
-	//			glTexCoord2f(0, 0);       glVertex3f(5, -5, 0);
-	//			glTexCoord2f(-1, 0);        glVertex3f(5, 5, 0);
-	//			glTexCoord2f(-1, -1);     glVertex3f(-5, 5, 0);
-	//			glTexCoord2f(0, -1);    glVertex3f(-5, -5, 0);
-	//		glEnd();
-	//glDisable(GL_TEXTURE_2D);
+ 
 
 	return TRUE;
 }

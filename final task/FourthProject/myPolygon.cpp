@@ -11,21 +11,32 @@
 
 MYPOLYGON::MYPOLYGON(){} 
 
-void MYPOLYGON::drawPolygon(float x, float y , float h , float w ,int textureNum ) {
-	if(textureNum==0){
-	}
-	else{
- 	glEnable(GL_TEXTURE_2D);
- glBindTexture(GL_TEXTURE_2D, textureNum);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, 0x812F);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, 0x812F);
+void MYPOLYGON::drawPolygon(float h, float w, int textureNum) {
+    float xOffset = -w * 0.500; // Offset to center the polygon horizontally
+    float yOffset = -h * 0.500; // Offset to center the polygon vertically
 
-    // Draw rectangle
-    glBegin(GL_QUADS);
-    glTexCoord2f(1.0f, 0.0f); glVertex3f(x, y, 0.0f);                  // Bottom-right
-    glTexCoord2f(1.0f, 1.0f); glVertex3f(x, y + h, 0.0f);        // Top-right
-    glTexCoord2f(0.0f, 1.0f); glVertex3f(x + w, y + h, 0.0f); // Top-left
-    glTexCoord2f(0.0f, 0.0f); glVertex3f(x + w, y, 0.0f);         // Bottom-left
-    glEnd();
-	}
+    if (textureNum == 0) {
+        // No texture applied, draw a plain rectangle
+        glBegin(GL_QUADS);
+        glVertex3f(xOffset, yOffset, 0.0f);                 // Bottom-left
+        glVertex3f(xOffset, yOffset + h, 0.0f);            // Top-left
+        glVertex3f(xOffset + w, yOffset + h, 0.0f);        // Top-right
+        glVertex3f(xOffset + w, yOffset, 0.0f);            // Bottom-right
+        glEnd();
+    } else {
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, textureNum);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, 0x812F);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, 0x812F);
+
+        // Draw textured rectangle
+        glBegin(GL_QUADS);
+        glTexCoord2f(0.0f, 0.0f); glVertex3f(xOffset, yOffset, 0.0f);          // Bottom-left
+        glTexCoord2f(0.0f, 1.0f); glVertex3f(xOffset, yOffset + h, 0.0f);      // Top-left
+        glTexCoord2f(1.0f, 1.0f); glVertex3f(xOffset + w, yOffset + h, 0.0f);  // Top-right
+        glTexCoord2f(1.0f, 0.0f); glVertex3f(xOffset + w, yOffset, 0.0f);      // Bottom-right
+        glEnd();
+
+        glDisable(GL_TEXTURE_2D);
+    }
 }

@@ -31,8 +31,19 @@ void ParallelRectangle::drawParallelRectangle(float h, float w, float l, Texture
             textureList = myTextureObj.staircaseTexture;
         } else if (textureType == wardrobe  ){
 			textureList = myTextureObj.wardrobeTexture ; 
+		}  else if (textureType == entryRoom){
+			textureList = myTextureObj.entryRoomTexture ;
+		}
+		else if (textureType == bathRoom){
+			textureList = myTextureObj.bathRoomTexture ;
 		}
 
+	else if (textureType == mainRoom){
+			textureList = myTextureObj.mainRoomTexture ;
+		}
+	else if (textureType == kitchenRoom){
+			textureList = myTextureObj.kitchenTexture ;
+		}
 
     }
 

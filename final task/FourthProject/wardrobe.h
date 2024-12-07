@@ -4,14 +4,18 @@
 
 class WARDROBE {
 private:
-    float rotateAngle; 
+    float rotateAngle;
+	float previousRotateAngle ; 
+	bool isDoneEditDoorState ; 
+	bool isOpenMode ; 
     ParallelRectangle parallelRectangleObject ; // Create the rectangle object
-    void drawWardrobeDoor(int h , int w);
+    void drawWardrobeDoor(float h , float w,bool isRightDoor );
 
 
 public:
     WARDROBE(); // Constructor with default values
-    void draw(int h , int w , int l);              // Method to draw the object with rotation
+    void draw(float h , float w , float l);              // Method to draw the object with rotation
+	void openOrCloseDoors();
 };
 
 #endif // COMEDINA_H

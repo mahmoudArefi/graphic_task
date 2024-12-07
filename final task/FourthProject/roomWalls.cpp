@@ -5,8 +5,14 @@
 #include <glu.h>            // Header File For The GLu32 Library
 #include <glaux.h>          // Header File For The Glaux Library
 #include <cmath>
-
+#include "parallelRectangle.h"
+#include "comedina.h"
+#include "wardrobe.h"
+#include "table.h"
 RoomWalls::RoomWalls() {
+     roomHeight = 4;
+	 roomWidth = 8;
+	 roomDepth =4;
     // Constructor
 }
 
@@ -64,29 +70,76 @@ void RoomWalls::drawRoomWalls(float h, float w, float l) {
     glEnd(); // End drawing the parallelepiped
 }
 
-void RoomWalls::drawHouse(){
-	float roomHeight = 4 , roomWidth = 2 , roomDepth =  2 ; 
-	glPushMatrix();
-	glTranslatef( -roomWidth*1.2 , roomHeight*0.5 , 0.0f);
-	drawRoomWalls(roomHeight,roomWidth,roomDepth) ;
-	glPopMatrix();
+void RoomWalls::drawHouse() {
+  
+	 ParallelRectangle prObj = ParallelRectangle();
+    // Top-left rectangle
+    glPushMatrix();
+    glTranslatef(-roomWidth*0.505, roomHeight * 0.505, 0.0f); // Top position (y positive)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth , TextureType::mainRoom);
+    glPopMatrix();
 
-	glPushMatrix();
-	glTranslatef( roomWidth*1.2 , roomHeight*0.5 , 0.0f);
-	drawRoomWalls(roomHeight,roomWidth,roomDepth) ;
-	glPopMatrix();
+    // Top-right rectangle
+    glPushMatrix();
+    glTranslatef(roomWidth*0.505 , roomHeight * 0.505, 0.0f); // Top position (y positive)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth, TextureType::kitchenRoom);
+    glPopMatrix();
 
+    // Bottom-right rectangle
+    drawEntryRoom();
 
-	glPushMatrix();
-	glTranslatef( roomWidth*1.2 , -roomHeight*0.02 , 0.0f);
-	drawRoomWalls(roomHeight,roomWidth,roomDepth) ;
-	glPopMatrix();
-
-	glPushMatrix();
-	glTranslatef( -roomWidth*1.2 , -roomHeight*0.02, 0.0f);
-	drawRoomWalls(roomHeight,roomWidth,roomDepth) ;
-	glPopMatrix();
+    // Bottom-left rectangle
+    glPushMatrix();
+    glTranslatef(-roomWidth*0.505 , -roomHeight * 0.505, 0.0f); // Bottom position (y negative)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth, TextureType::bathRoom);
+    glPopMatrix();
 }
+
+void RoomWalls::drawEntryRoom(){
+	 ParallelRectangle prObj = ParallelRectangle();
+	extern  COMEDINA comedina123 ;
+	float comedinaH = roomHeight*0.25;
+	float comedinaW = roomWidth *0.15 ;
+	float comedinaD = roomDepth * 0.4 ;
+
+	extern  WARDROBE wardrobe222 ;
+	float warddropH = roomHeight*0.6	;
+	float wardropeW = roomWidth *0.4;
+	float wardropeD = roomDepth * 0.4;
+
+	TABLE table ; 
+	float tableH = roomHeight*0.2;
+	float tableW = roomWidth*0.1;
+	float tableD = roomDepth* 0.4;
+
+	//std::cout<< " H : " << warddropH << "    W : " << wardropeW << "     D :  " << wardropeD ; 
+	glPushMatrix();
+    glTranslatef(roomWidth*0.505, -roomHeight * 0.505, 0.0f); // Bottom position (y negative)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth, TextureType::entryRoom);
+
+	glTranslatef(0,comedinaH/2-(roomHeight*0.5),comedinaD/2-(roomDepth*0.5));
+
+	glTranslatef(roomWidth*0.24,0,0);
+    comedina123.draw(comedinaH, comedinaW ,comedinaD);
+	
+
+	glTranslatef(-roomWidth*0.2,tableH/2,0);
+    table.draw(tableH, tableW ,tableD);
+	glPopMatrix();
+ 
+
+	glPushMatrix();
+	glTranslatef((roomWidth/2-wardropeW/2)*0.9   ,-roomHeight/2 - warddropH/2,    wardropeD/2-roomDepth/2 );
+	wardrobe222.draw(warddropH, wardropeW ,wardropeD);
+	 /*glTranslatef(-wardropeW, 0  ,   wardropeD);
+     wardrobe222.draw(warddropH, wardropeW ,wardropeD);
+	 glPopMatrix();*/
+	    
+
+
+    glPopMatrix();
+}
+
 
 
 
