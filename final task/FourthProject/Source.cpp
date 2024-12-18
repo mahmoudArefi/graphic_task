@@ -19,6 +19,7 @@
 #include <cmath>
 #include <GL/gl.h>
 #include "table.h"
+#include "Model_3DS.h"
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
@@ -27,6 +28,10 @@ HINSTANCE	hInstance;		// Holds The Instance Of The Application
 bool	keys[256];			// Array Used For The Keyboard Routine
 bool	active = TRUE;		// Window Active Flag Set To TRUE By Default
 bool	fullscreen = FALSE;	// Fullscreen Flag Set To Fullscreen Mode By Default
+
+
+int mouseX = 0, mouseY = 0;
+bool isClicked = 0, isRClicked = 0;
 
 LRESULT	CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);	// Declaration For WndProc
 
@@ -230,6 +235,8 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  WARDROBE wardrobe245 ;
  WARDROBE wardrobe222 ;
  COMEDINA comedina123 ;
+ Model_3DS *tank;
+
 void Key(bool* keys, float speed)
 {
 	if (keys['S'])
@@ -274,42 +281,40 @@ void Key(bool* keys, float speed)
  //extern std::vector<int> wardrobeTexture ; 
  MYTEXTURE myTextureObj ; 
 
+ float ch=0;
+GLfloat LightDir[] = { 0.0f,0.0f,-60.0f,1.0f };
+GLfloat LightPos[] = { 0.0f,0.0f,-20.0f,1.0f };
 
+GLfloat LightAmb[] = { 0.5,0.5f,0.5f,1.0f };
+GLfloat LightDiff[] = { 0.6f,0.6f,0.6f,1.0f };
+GLfloat LightSpec[] = { 0.2f,0.2f,0.2f,1.0f };
+
+
+GLfloat MatAmb[] = { 1.0f,0.0f,0.0f,1.0f };
+GLfloat MatDif[] = { 0.6f,0.6f,0.6f,1.0f };
+GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f };
+
+GLfloat MatShn[] = { 128.0f };
  
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
-	 
+	
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 	glClearColor(0.1f, 0.1f, 0.1f, 0.5f);				// Black Background
 	glClearDepth(1.0f);									// Depth Buffer Setup
 	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
 	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
-	 
+	glEnable(GL_TEXTURE_2D);
  
 	myTextureObj = MYTEXTURE();
 	myTextureObj.InitAllTexture();
-	
-
-	 
-	glEnable(GL_TEXTURE_2D);
- 
-
-	AllocConsole();
-   freopen("CONOUT$", "w", stdout);
-   freopen("CONIN$", "r", stdin);
+//AllocConsole();
+// freopen("CONOUT$", "w", stdout);
+// freopen("CONIN$", "r", stdin);
  
 
 
-
-
-	
-
-
-
-	/*image = LoadTexture("back.bmp", 255);
-	image2 = LoadTexture("DU icon.bmp");*/
-	
 
 	// skybox
 	SKYFRONT = LoadTexture("front.bmp", 255);
@@ -321,15 +326,70 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	// note if you load a image the opengl while on the GL_Texture_2D himself
 	glDisable(GL_TEXTURE_2D);
 	
+	glEnable(GL_LIGHT1);
+	glLightfv(GL_LIGHT1, GL_POSITION, LightPos);
+	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
+	glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
+
+	glEnable(GL_LIGHTING);
+	glMaterialfv(GL_FRONT, GL_AMBIENT, MatAmb);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, MatDif);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, MatSpec);
+	glMaterialfv(GL_FRONT, GL_SHININESS, MatShn);
+	glEnable(GL_COLOR_MATERIAL);
+
+
+	tank = new Model_3DS();
+	tank-> Load("myModels\\test2\\\Mugali_GALIANO_Commode Buffet N060923.3ds") ;
+	tank->pos.x=0;
+	tank->pos.y=-00;
+	tank->pos.z=+00;
+	tank->scale=0.5;
+
+
 	MyCamera = Camera();
 	MyCamera.Position.x = 0;
-	MyCamera.Position.y = 0;
-	MyCamera.Position.z = +15;
+	MyCamera.Position.y = -0;
+	MyCamera.Position.z = +0;
 	
 	return TRUE;										// Initialization Went OK
 }
+void move_tank(float speed){
 
-	 
+	if (keys['Y'])
+		tank->pos.z -=speed;
+	if (keys['H'])
+		tank->pos.z +=speed;
+	if (keys['J'])
+		tank->pos.x +=speed;
+	if (keys['G'])
+		tank->pos.x -=speed;
+
+}
+
+int  angle = 0;
+double k = 0 , l=0 , h=0;
+
+void mouse(int mouseX, int mouseY, bool isClicked, bool isRClicked)
+{
+       if (mouseX){
+		    k = float((mouseX-520)*10)/640;
+			l = float((mouseY-520)*10)/640;
+			glTranslated(k,l,0);
+	       
+	      } 
+	   if(isClicked){
+	      h+=0.1f;
+	   }
+	    if(isRClicked){
+	      h-=0.1f;
+	   
+	   }
+
+
+}
+
 
 void drawCylinder(float radius, float height, int segments, float red, float green, float blue) {
     glColor3f(red, green, blue); // Set color
@@ -380,31 +440,29 @@ float wardrobeDoorRotateAngle = 0 ;
 
 RoomWalls roomWalls ; 
 
-int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glLoadIdentity();
+int DrawGLScene(GLvoid) {
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glLoadIdentity();
 
-	MyCamera.Render();
-	Key(keys, 0.05);
+    //// Draw the static sphere at a fixed position
+    //glPushMatrix(); // Save the current transformation matrix
+    //glTranslatef(1, 1, 1); // Set the sphere's position
+    //glColor3f(1, 1, 1); // Optional: set color for the sphere
+    //auxSolidSphere(0.1); // Draw the sphere
+    //glPopMatrix(); // Restore the previous transformation matrix
 
-	glTranslatef(0,0 , -7 ) ;
-	glRotatef(20, 1 , 0 , 0 ) ;
-	//drawCylinder(1.0f, 2.0f, 32, 1.0f, 0.0f, 0.0f); // Red cylinder
-	TABLE table ; 
-	//table.draw(5,8,6);
-	    roomWalls.drawHouse();
-	//Draw_Skybox(0, 0, 0, 100, 100, 100);
-	//wardrobe222.draw(4.8, 6.4 ,3.2);
-	//glTranslatef(10,0 , 0 ) ;
-	//	wardrobe222.draw(8 ,9 ,5);
+    MyCamera.Render(); // Apply camera transformations
+    Key(keys, 0.05);
 
+    move_tank(0.1);
+    roomWalls.drawHouse();
 
-	
- 
-
-	return TRUE;
+    return TRUE;
 }
+
+
+
+
 
 GLvoid KillGLWindow(GLvoid)								// Properly Kill The Window
 {
@@ -619,6 +677,7 @@ BOOL CreateGLWindow(char* title, int width, int height, int bits, bool fullscree
 	return TRUE;									// Success
 }
 
+
 LRESULT CALLBACK WndProc(HWND	hWnd,			// Handle For This Window
 	UINT	uMsg,			// Message For This Window
 	WPARAM	wParam,			// Additional Message Information
@@ -626,6 +685,16 @@ LRESULT CALLBACK WndProc(HWND	hWnd,			// Handle For This Window
 {
 	switch (uMsg)									// Check For Windows Messages
 	{
+
+		case WM_MOUSEMOVE:
+	{
+		mouseX = (int)LOWORD(lParam);
+		mouseY = (int)HIWORD(lParam);
+		isClicked = (LOWORD(wParam) & MK_LBUTTON) ? true : false;
+		isRClicked = (LOWORD(wParam) & MK_RBUTTON) ? true : false;
+		break;
+	}
+
 	case WM_ACTIVATE:							// Watch For Window Activate Message
 	{
 													if (!HIWORD(wParam))					// Check Minimization State

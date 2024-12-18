@@ -25,6 +25,12 @@
     <Filter Include="Source Files\project_bodies">
       <UniqueIdentifier>{d235083b-c688-404e-b40a-fd826ea7a53c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\model_headers">
+      <UniqueIdentifier>{27e850b2-5b68-49b0-96c5-be4f6078b522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\model_bodies">
+      <UniqueIdentifier>{d67a23a7-e70a-43d3-b6b2-577b1643cd4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -57,6 +63,12 @@
     <ClCompile Include="table.cpp">
       <Filter>Source Files\special_objects</Filter>
     </ClCompile>
+    <ClCompile Include="Model_3DS.cpp">
+      <Filter>Source Files\model_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="3DTexture.cpp">
+      <Filter>Source Files\model_bodies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texture.h">
@@ -85,6 +97,12 @@
     </ClInclude>
     <ClInclude Include="table.h">
       <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Model_3DS.h">
+      <Filter>Header Files\model_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="3DTexture.h">
+      <Filter>Header Files\model_headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

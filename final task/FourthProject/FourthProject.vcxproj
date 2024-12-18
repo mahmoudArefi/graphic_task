@@ -64,8 +64,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="3DTexture.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="comedina.cpp" />
+    <ClCompile Include="Model_3DS.cpp" />
     <ClCompile Include="myPolygon.cpp" />
     <ClCompile Include="myTexture.cpp" />
     <ClCompile Include="parallelRectangle.cpp" />
@@ -76,8 +78,10 @@
     <ClCompile Include="wardrobe.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="3DTexture.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="comedina.h" />
+    <ClInclude Include="Model_3DS.h" />
     <ClInclude Include="myPolygon.h" />
     <ClInclude Include="myTexture.h" />
     <ClInclude Include="parallelRectangle.h" />
