@@ -9,6 +9,8 @@
 #include "comedina.h"
 #include "wardrobe.h"
 #include "table.h"
+#include "myModel.h"
+#include "modelClass.h"
 RoomWalls::RoomWalls() {
      roomHeight = 4;
 	 roomWidth = 8;
@@ -70,14 +72,12 @@ void RoomWalls::drawRoomWalls(float h, float w, float l) {
     glEnd(); // End drawing the parallelepiped
 }
 
+extern MYMODEL myModelObj ;
+
 void RoomWalls::drawHouse() {
-  
+	
 	 ParallelRectangle prObj = ParallelRectangle();
-    // Top-left rectangle
-    glPushMatrix();
-    glTranslatef(-roomWidth*0.505, roomHeight * 0.505, 0.0f); // Top position (y positive)
-    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth , TextureType::mainRoom);
-    glPopMatrix();
+    drawMeanRoom(); 
 
     // Top-right rectangle
     glPushMatrix();
@@ -142,5 +142,31 @@ void RoomWalls::drawEntryRoom(){
 
 
 
+void RoomWalls::drawMeanRoom(){
+	 ParallelRectangle prObj = ParallelRectangle();
+	    // Top-left rectangle
+    glPushMatrix();
+    glTranslatef(-roomWidth*0.505, roomHeight * 0.505, 0.0f); // Top position (y positive)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth , TextureType::mainRoom);
+    glTranslatef(0,-roomHeight/2  ,0) ;
+  
+	
+	//ModelVar t = *(myModelObj.table);
 
+	//glTranslatef(0,myModelObj.table->getHalfHeight(),0);
+
+	double bedhalfW  = (myModelObj.bed->getHalfW()); 
+	glTranslatef(bedhalfW-roomWidth*0.5,0,0);
+    myModelObj.bed->model->Draw();
+
+	glPushMatrix();
+	glTranslatef(bedhalfW + myModelObj.woodTable->getHalfW() ,0, myModelObj.woodTable->getHalfD()- roomDepth*0.5 );
+	myModelObj.woodTable->model->Draw();
+	glPopMatrix();
+
+	glTranslatef(roomWidth*0.5 , myModelObj.table->getHalfHeight() , 0 ) ;
+	myModelObj.table->model->Draw();
+	//std::cout<<myModelObj.table->h;
+    glPopMatrix();
+}
 

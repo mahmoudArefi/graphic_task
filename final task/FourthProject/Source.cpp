@@ -20,6 +20,12 @@
 #include <GL/gl.h>
 #include "table.h"
 #include "Model_3DS.h"
+#include "myModel.h"
+
+
+ 
+#include <iostream>
+#include <float.h>
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
@@ -235,8 +241,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  WARDROBE wardrobe245 ;
  WARDROBE wardrobe222 ;
  COMEDINA comedina123 ;
- Model_3DS *tank;
-
+ 
 void Key(bool* keys, float speed)
 {
 	if (keys['S'])
@@ -281,9 +286,12 @@ void Key(bool* keys, float speed)
  //extern std::vector<int> wardrobeTexture ; 
  MYTEXTURE myTextureObj ; 
 
- float ch=0;
-GLfloat LightDir[] = { 0.0f,0.0f,-60.0f,1.0f };
-GLfloat LightPos[] = { 0.0f,0.0f,-20.0f,1.0f };
+ float x1 = 0 , x2 = 0 , x3 = 0 , x4 = 0 ;
+
+GLfloat Room1LightPos[] = { -10.0f, 5.0f, -10.0f, 1.0f };
+GLfloat Room2LightPos[] = { 10.0f, 5.0f, -10.0f, 1.0f };
+GLfloat Room3LightPos[] = { -1.0f, 1.0f, 5.0f, 1.0f };
+GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 1.0f };
 
 GLfloat LightAmb[] = { 0.5,0.5f,0.5f,1.0f };
 GLfloat LightDiff[] = { 0.6f,0.6f,0.6f,1.0f };
@@ -296,6 +304,9 @@ GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f };
 
 GLfloat MatShn[] = { 128.0f };
  
+
+ MYMODEL myModelObj ; 
+ Model_3DS *tank ; 
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
 	
@@ -326,47 +337,63 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	// note if you load a image the opengl while on the GL_Texture_2D himself
 	glDisable(GL_TEXTURE_2D);
 	
-	glEnable(GL_LIGHT1);
-	glLightfv(GL_LIGHT1, GL_POSITION, LightPos);
-	glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
-	glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
 
 	glEnable(GL_LIGHTING);
+//glEnable(GL_LIGHT0); // Room 1
+//    glLightfv(GL_LIGHT0, GL_POSITION, Room1LightPos);
+//    glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmb);
+//    glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiff);
+//    glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpec);
+
+    //glEnable(GL_LIGHT1); // Room 2
+    //glLightfv(GL_LIGHT1, GL_POSITION, Room2LightPos);
+    //glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
+    //glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
+    //glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
+
+    glEnable(GL_LIGHT2); // Room 3
+    glLightfv(GL_LIGHT2, GL_POSITION, Room3LightPos);
+    glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmb);
+    glLightfv(GL_LIGHT2, GL_DIFFUSE, LightDiff);
+    glLightfv(GL_LIGHT2, GL_SPECULAR, LightSpec);
+
+    //glEnable(GL_LIGHT3); // Room 4
+    //glLightfv(GL_LIGHT3, GL_POSITION, Room4LightPos);
+    //glLightfv(GL_LIGHT3, GL_AMBIENT, LightAmb);
+    //glLightfv(GL_LIGHT3, GL_DIFFUSE, LightDiff);
+    //glLightfv(GL_LIGHT3, GL_SPECULAR, LightSpec);
+
+	
 	glMaterialfv(GL_FRONT, GL_AMBIENT, MatAmb);
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, MatDif);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, MatSpec);
 	glMaterialfv(GL_FRONT, GL_SHININESS, MatShn);
 	glEnable(GL_COLOR_MATERIAL);
 
-
-	tank = new Model_3DS();
-	tank-> Load("myModels\\test2\\\Mugali_GALIANO_Commode Buffet N060923.3ds") ;
-	tank->pos.x=0;
-	tank->pos.y=-00;
-	tank->pos.z=+00;
-	tank->scale=0.5;
-
-
 	MyCamera = Camera();
 	MyCamera.Position.x = 0;
 	MyCamera.Position.y = -0;
 	MyCamera.Position.z = +0;
+
 	
+	myModelObj.initAllMyModel();
+	
+
+
 	return TRUE;										// Initialization Went OK
 }
-void move_tank(float speed){
-
-	if (keys['Y'])
-		tank->pos.z -=speed;
-	if (keys['H'])
-		tank->pos.z +=speed;
-	if (keys['J'])
-		tank->pos.x +=speed;
-	if (keys['G'])
-		tank->pos.x -=speed;
-
-}
+//void move_tank(float speed){
+//
+//	if (keys['Y'])
+//		tank->pos.z -=speed;
+//	if (keys['H'])
+//		tank->pos.z +=speed;
+//	if (keys['J'])
+//		tank->pos.x +=speed;
+//	if (keys['G'])
+//		tank->pos.x -=speed;
+//
+//}
 
 int  angle = 0;
 double k = 0 , l=0 , h=0;
@@ -440,6 +467,7 @@ float wardrobeDoorRotateAngle = 0 ;
 
 RoomWalls roomWalls ; 
 
+ 
 int DrawGLScene(GLvoid) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
@@ -454,8 +482,13 @@ int DrawGLScene(GLvoid) {
     MyCamera.Render(); // Apply camera transformations
     Key(keys, 0.05);
 
-    move_tank(0.1);
-    roomWalls.drawHouse();
+   // move_tank(0.1);
+
+	//myModelObj.tank->Draw();
+	//tree->Draw();
+	glTranslatef(0,-2,-20);
+	glRotatef(25, 1 , 0, 0 );
+   roomWalls.drawHouse();
 
     return TRUE;
 }

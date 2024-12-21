@@ -69,6 +69,12 @@
     <ClCompile Include="3DTexture.cpp">
       <Filter>Source Files\model_bodies</Filter>
     </ClCompile>
+    <ClCompile Include="myModel.cpp">
+      <Filter>Source Files\model_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_class.cpp">
+      <Filter>Source Files\model_bodies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texture.h">
@@ -102,6 +108,12 @@
       <Filter>Header Files\model_headers</Filter>
     </ClInclude>
     <ClInclude Include="3DTexture.h">
+      <Filter>Header Files\model_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="myModel.h">
+      <Filter>Header Files\model_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="modelClass.h">
       <Filter>Header Files\model_headers</Filter>
     </ClInclude>
   </ItemGroup>
