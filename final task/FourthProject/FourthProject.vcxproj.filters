@@ -25,34 +25,82 @@
     <Filter Include="Source Files\project_bodies">
       <UniqueIdentifier>{d235083b-c688-404e-b40a-fd826ea7a53c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\model_headers">
-      <UniqueIdentifier>{27e850b2-5b68-49b0-96c5-be4f6078b522}</UniqueIdentifier>
+    <Filter Include="Resource Files\Sound">
+      <UniqueIdentifier>{c7d6d71c-5be5-4dfd-b0da-224f70a51e17}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\model_bodies">
-      <UniqueIdentifier>{d67a23a7-e70a-43d3-b6b2-577b1643cd4b}</UniqueIdentifier>
+    <Filter Include="Resource Files\Sound\sound_bodies">
+      <UniqueIdentifier>{13f1a8d1-131e-4f4f-91c1-61c308f54b24}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\sound_headers">
+    <Filter Include="Resource Files\Sound\sound_headers">
       <UniqueIdentifier>{d7d879ac-a134-47d3-8c82-3e74ddbef206}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\sound_bodies">
-      <UniqueIdentifier>{13f1a8d1-131e-4f4f-91c1-61c308f54b24}</UniqueIdentifier>
+    <Filter Include="Resource Files\Modeling">
+      <UniqueIdentifier>{5afea148-7126-4dfb-91bd-7c195d9a9961}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Modeling\model_headers">
+      <UniqueIdentifier>{27e850b2-5b68-49b0-96c5-be4f6078b522}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Modeling\model_bodies">
+      <UniqueIdentifier>{d67a23a7-e70a-43d3-b6b2-577b1643cd4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files">
+      <UniqueIdentifier>{27ffaf5e-ef4e-4434-8400-e9f1e2123cb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Modiling">
+      <UniqueIdentifier>{893004fd-746e-4785-9d1e-ae3d430077d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Modiling\headers">
+      <UniqueIdentifier>{c4c1af71-9c00-4d0a-9306-07e5670a00c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Modiling\bodies">
+      <UniqueIdentifier>{b7934cb5-f171-443d-b745-3b2fd9409795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Texture">
+      <UniqueIdentifier>{7511634e-6924-468a-9bf1-961a040a5735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Texture\header">
+      <UniqueIdentifier>{a24fb104-78d4-418f-85cb-63a337b42267}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Texture\bodies">
+      <UniqueIdentifier>{f290911a-be63-4840-a274-7cbc9fb21ec4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Camera">
+      <UniqueIdentifier>{218d423f-fc5e-43b5-874f-8041ea24a82c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Camera\header">
+      <UniqueIdentifier>{445d3d81-d47a-4738-9c4c-4711bd7fcfbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Camera\body">
+      <UniqueIdentifier>{a26ea7db-52d1-4686-8e39-ed287d6071aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Texture">
+      <UniqueIdentifier>{f40371dc-c5b8-4639-b014-0c9408924386}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Texture\headers">
+      <UniqueIdentifier>{30a2037b-c58b-40eb-8bd1-330a8f154dda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Texture\bodies">
+      <UniqueIdentifier>{3cea1cae-cd22-429b-9d45-9d27ad860c49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Public_Drawing_Classes">
+      <UniqueIdentifier>{4ecf2424-bdcd-44b8-9694-3a4e33706855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Public_Drawing_Classes\Polygon">
+      <UniqueIdentifier>{dbf75f11-389d-486b-aa82-aff20740566d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Public_Drawing_Classes\ParallelRectangle">
+      <UniqueIdentifier>{408cdfbb-9d88-4420-843a-b367d524d573}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Structure_files\Sound">
+      <UniqueIdentifier>{e9e0efa7-97fc-4630-92c6-6cfb1933f8eb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="texture.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="camera.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="comedina.cpp">
       <Filter>Source Files\special_objects</Filter>
-    </ClCompile>
-    <ClCompile Include="parallelRectangle.cpp">
-      <Filter>Source Files\project_bodies</Filter>
     </ClCompile>
     <ClCompile Include="roomWalls.cpp">
       <Filter>Source Files\project_bodies</Filter>
@@ -60,49 +108,52 @@
     <ClCompile Include="wardrobe.cpp">
       <Filter>Source Files\special_objects</Filter>
     </ClCompile>
-    <ClCompile Include="myPolygon.cpp">
-      <Filter>Source Files\project_bodies</Filter>
-    </ClCompile>
-    <ClCompile Include="myTexture.cpp">
-      <Filter>Source Files\project_bodies</Filter>
-    </ClCompile>
     <ClCompile Include="table.cpp">
       <Filter>Source Files\special_objects</Filter>
     </ClCompile>
     <ClCompile Include="Model_3DS.cpp">
-      <Filter>Source Files\model_bodies</Filter>
+      <Filter>Resource Files\Modeling\model_bodies</Filter>
     </ClCompile>
     <ClCompile Include="3DTexture.cpp">
-      <Filter>Source Files\model_bodies</Filter>
-    </ClCompile>
-    <ClCompile Include="myModel.cpp">
-      <Filter>Source Files\model_bodies</Filter>
-    </ClCompile>
-    <ClCompile Include="Model_class.cpp">
-      <Filter>Source Files\model_bodies</Filter>
+      <Filter>Resource Files\Modeling\model_bodies</Filter>
     </ClCompile>
     <ClCompile Include="Wave.cpp">
-      <Filter>Header Files\sound_headers</Filter>
+      <Filter>Resource Files\Sound\sound_headers</Filter>
     </ClCompile>
     <ClCompile Include="Sound.cpp">
-      <Filter>Source Files\sound_bodies</Filter>
+      <Filter>Resource Files\Sound\sound_bodies</Filter>
     </ClCompile>
     <ClCompile Include="StdAfx.cpp">
-      <Filter>Source Files\sound_bodies</Filter>
+      <Filter>Resource Files\Sound\sound_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="Model_class.cpp">
+      <Filter>Source Files\Structure_files\Modiling\bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="myModel.cpp">
+      <Filter>Source Files\Structure_files\Modiling\bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Resource Files\Texture\bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Resource Files\Camera\body</Filter>
+    </ClCompile>
+    <ClCompile Include="myTexture.cpp">
+      <Filter>Source Files\Structure_files\Texture\bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="myPolygon.cpp">
+      <Filter>Source Files\Structure_files\Public_Drawing_Classes\Polygon</Filter>
+    </ClCompile>
+    <ClCompile Include="parallelRectangle.cpp">
+      <Filter>Source Files\Structure_files\Public_Drawing_Classes\ParallelRectangle</Filter>
+    </ClCompile>
+    <ClCompile Include="mySounds.cpp">
+      <Filter>Source Files\Structure_files\Sound</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="texture.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="comedina.h">
       <Filter>Header Files\special_objects</Filter>
-    </ClInclude>
-    <ClInclude Include="parallelRectangle.h">
-      <Filter>Header Files\project_headers</Filter>
     </ClInclude>
     <ClInclude Include="roomWalls.h">
       <Filter>Header Files\project_headers</Filter>
@@ -110,35 +161,47 @@
     <ClInclude Include="wardrobe.h">
       <Filter>Header Files\special_objects</Filter>
     </ClInclude>
-    <ClInclude Include="myPolygon.h">
-      <Filter>Header Files\project_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="myTexture.h">
-      <Filter>Header Files\project_headers</Filter>
-    </ClInclude>
     <ClInclude Include="table.h">
       <Filter>Header Files\special_objects</Filter>
     </ClInclude>
     <ClInclude Include="Model_3DS.h">
-      <Filter>Header Files\model_headers</Filter>
+      <Filter>Resource Files\Modeling\model_headers</Filter>
     </ClInclude>
     <ClInclude Include="3DTexture.h">
-      <Filter>Header Files\model_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="myModel.h">
-      <Filter>Header Files\model_headers</Filter>
-    </ClInclude>
-    <ClInclude Include="modelClass.h">
-      <Filter>Header Files\model_headers</Filter>
+      <Filter>Resource Files\Modeling\model_headers</Filter>
     </ClInclude>
     <ClInclude Include="Sound.h">
-      <Filter>Header Files\sound_headers</Filter>
+      <Filter>Resource Files\Sound\sound_headers</Filter>
     </ClInclude>
     <ClInclude Include="Wave.h">
-      <Filter>Header Files\sound_headers</Filter>
+      <Filter>Resource Files\Sound\sound_headers</Filter>
     </ClInclude>
     <ClInclude Include="StdAfx.h">
-      <Filter>Header Files\sound_headers</Filter>
+      <Filter>Resource Files\Sound\sound_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="myModel.h">
+      <Filter>Source Files\Structure_files\Modiling\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="modelClass.h">
+      <Filter>Source Files\Structure_files\Modiling\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Resource Files\Texture\header</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Resource Files\Camera\header</Filter>
+    </ClInclude>
+    <ClInclude Include="myTexture.h">
+      <Filter>Source Files\Structure_files\Texture\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="myPolygon.h">
+      <Filter>Source Files\Structure_files\Public_Drawing_Classes\Polygon</Filter>
+    </ClInclude>
+    <ClInclude Include="parallelRectangle.h">
+      <Filter>Source Files\Structure_files\Public_Drawing_Classes\ParallelRectangle</Filter>
+    </ClInclude>
+    <ClInclude Include="mySounds.h">
+      <Filter>Source Files\Structure_files\Sound</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

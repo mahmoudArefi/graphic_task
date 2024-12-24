@@ -23,7 +23,7 @@
 #include "myModel.h"
 #include "sound.h"
 #include "Wave.h"
- 
+#include "mySounds.h"
 #include <iostream>
 #include <float.h>
 HDC			hDC = NULL;		// Private GDI Device Context
@@ -243,9 +243,7 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  COMEDINA comedina123 ;
  
 
- 
-DirectSoundBuffer Sound1;
-DirectSoundManager SoundManager1;
+
 
 
  
@@ -274,10 +272,10 @@ GLfloat MatShn[] = { 128.0f };
  
 
  MYMODEL myModelObj ; 
+ MySounds mySoundsObj ;
  Model_3DS *tank ; 
 
- DirectSoundBuffer Sound;
-DirectSoundManager SoundManager;
+
 
 
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
@@ -350,11 +348,7 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 
 	
 	myModelObj.initAllMyModel();
-		SoundManager.Initialize(hWnd);
-	SoundManager.CreateSound("rifle.wav", Sound);
-
-	SoundManager1.Initialize(hWnd);
-	SoundManager1.CreateSound("tank-engine.wav", Sound1);
+	mySoundsObj.initAllSounds();
 	
 
 
@@ -392,7 +386,8 @@ void Key(bool* keys, float speed)
 		wardrobe222.openOrCloseDoors() ; 
 	if (keys['1']){
 			std::cout<<"hello" << std::endl ; 
-			Sound.Play(0);
+			//mySoundsObj.Sound.Play(0);
+			mySoundsObj.testSound.Sound.Play(0);
 		comedina123.openOrCloseStaircase(1);}
 		if (keys['2'])
 		comedina123.openOrCloseStaircase(2);

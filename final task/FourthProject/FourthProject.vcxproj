@@ -73,6 +73,7 @@
     <ClCompile Include="Model_class.cpp" />
     <ClCompile Include="myModel.cpp" />
     <ClCompile Include="myPolygon.cpp" />
+    <ClCompile Include="mySounds.cpp" />
     <ClCompile Include="myTexture.cpp" />
     <ClCompile Include="parallelRectangle.cpp" />
     <ClCompile Include="roomWalls.cpp" />
@@ -92,6 +93,7 @@
     <ClInclude Include="Model_3DS.h" />
     <ClInclude Include="myModel.h" />
     <ClInclude Include="myPolygon.h" />
+    <ClInclude Include="mySounds.h" />
     <ClInclude Include="myTexture.h" />
     <ClInclude Include="parallelRectangle.h" />
     <ClInclude Include="roomWalls.h" />
