@@ -31,6 +31,12 @@
     <Filter Include="Source Files\model_bodies">
       <UniqueIdentifier>{d67a23a7-e70a-43d3-b6b2-577b1643cd4b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\sound_headers">
+      <UniqueIdentifier>{d7d879ac-a134-47d3-8c82-3e74ddbef206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound_bodies">
+      <UniqueIdentifier>{13f1a8d1-131e-4f4f-91c1-61c308f54b24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -75,6 +81,15 @@
     <ClCompile Include="Model_class.cpp">
       <Filter>Source Files\model_bodies</Filter>
     </ClCompile>
+    <ClCompile Include="Wave.cpp">
+      <Filter>Header Files\sound_headers</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
+      <Filter>Source Files\sound_bodies</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files\sound_bodies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texture.h">
@@ -115,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="modelClass.h">
       <Filter>Header Files\model_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Header Files\sound_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Wave.h">
+      <Filter>Header Files\sound_headers</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files\sound_headers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

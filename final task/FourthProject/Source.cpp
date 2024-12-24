@@ -21,8 +21,8 @@
 #include "table.h"
 #include "Model_3DS.h"
 #include "myModel.h"
-
-
+#include "sound.h"
+#include "Wave.h"
  
 #include <iostream>
 #include <float.h>
@@ -242,44 +242,12 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  WARDROBE wardrobe222 ;
  COMEDINA comedina123 ;
  
-void Key(bool* keys, float speed)
-{
-	if (keys['S'])
-		MyCamera.RotateX(-6 * speed);
-	if (keys['W'])
-		MyCamera.RotateX(6* speed);
-	if (keys['D'])
-		MyCamera.RotateY(-6 * speed);
-	if (keys['Z'])
-		MyCamera.RotateZ(6* speed);
-	if (keys['X'])
-		MyCamera.RotateZ(-6 * speed);
-	if (keys['A'])
-		MyCamera.RotateY(6 * speed);
-	if (keys[VK_UP])
-		MyCamera.MoveForward(4 * speed);
-	if (keys[VK_DOWN])
-		MyCamera.MoveForward(-4 * speed);
-	if (keys[VK_RIGHT])
-		MyCamera.MoveRight(4 * speed);
-	if (keys[VK_LEFT])
-		MyCamera.MoveRight(-4 * speed);
-	if (keys['O'])
-		MyCamera.MoveUpward(4 * speed);
-	if (keys['L'])
-		MyCamera.MoveUpward(-4 * speed);
-	if (keys['0'])
-		wardrobe222.openOrCloseDoors() ; 
-	if (keys['1'])
-		comedina123.openOrCloseStaircase(1);
-		if (keys['2'])
-		comedina123.openOrCloseStaircase(2);
-			if (keys['3'])
-		comedina123.openOrCloseStaircase(3);
-			if(keys['q'])
-				comedina123.openOrCloseStaircase(0) ;
-	
-}
+
+ 
+DirectSoundBuffer Sound1;
+DirectSoundManager SoundManager1;
+
+
  
  //extern std::vector<int> staircaseTexture ; 
  //extern std::vector<int> comedinaTexture  ; 
@@ -307,6 +275,11 @@ GLfloat MatShn[] = { 128.0f };
 
  MYMODEL myModelObj ; 
  Model_3DS *tank ; 
+
+ DirectSoundBuffer Sound;
+DirectSoundManager SoundManager;
+
+
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
 	
@@ -377,10 +350,57 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 
 	
 	myModelObj.initAllMyModel();
+		SoundManager.Initialize(hWnd);
+	SoundManager.CreateSound("rifle.wav", Sound);
+
+	SoundManager1.Initialize(hWnd);
+	SoundManager1.CreateSound("tank-engine.wav", Sound1);
 	
 
 
 	return TRUE;										// Initialization Went OK
+}
+
+
+void Key(bool* keys, float speed)
+{
+	if (keys['S'])
+		MyCamera.RotateX(-6 * speed);
+	if (keys['W'])
+		MyCamera.RotateX(6* speed);
+	if (keys['D'])
+		MyCamera.RotateY(-6 * speed);
+	if (keys['Z'])
+		MyCamera.RotateZ(6* speed);
+	if (keys['X'])
+		MyCamera.RotateZ(-6 * speed);
+	if (keys['A'])
+		MyCamera.RotateY(6 * speed);
+	if (keys[VK_UP])
+		MyCamera.MoveForward(4 * speed);
+	if (keys[VK_DOWN])
+		MyCamera.MoveForward(-4 * speed);
+	if (keys[VK_RIGHT])
+		MyCamera.MoveRight(4 * speed);
+	if (keys[VK_LEFT])
+		MyCamera.MoveRight(-4 * speed);
+	if (keys['O'])
+		MyCamera.MoveUpward(4 * speed);
+	if (keys['L'])
+		MyCamera.MoveUpward(-4 * speed);
+	if (keys['0'])
+		wardrobe222.openOrCloseDoors() ; 
+	if (keys['1']){
+			std::cout<<"hello" << std::endl ; 
+			Sound.Play(0);
+		comedina123.openOrCloseStaircase(1);}
+		if (keys['2'])
+		comedina123.openOrCloseStaircase(2);
+			if (keys['3'])
+		comedina123.openOrCloseStaircase(3);
+			if(keys['q'])
+				comedina123.openOrCloseStaircase(0) ;
+	
 }
 //void move_tank(float speed){
 //
@@ -490,6 +510,8 @@ int DrawGLScene(GLvoid) {
 	glRotatef(25, 1 , 0, 0 );
    roomWalls.drawHouse();
 
+
+	//	comedina123.openOrCloseStaircase(1);}
     return TRUE;
 }
 
