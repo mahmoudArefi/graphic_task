@@ -13,8 +13,10 @@
 #include <windows.h>
 #include <iostream>
 #include "wardrobe.h"
+#include "fridge.h"
 #include "myPolygon.h"
 #include "myTexture.h"
+#include "ovenTable.h"
 #include <cmath>
 #include <GL/gl.h>
 #include "table.h"
@@ -26,6 +28,7 @@
 #include "elevator.h"
 #include <iostream>
 #include <float.h>
+#include "microwave.h"
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
@@ -343,6 +346,10 @@ int InitGL(GLvoid) {
 
 
 ELEVATOR elevator= ELEVATOR(12,3,3) ;
+ MICROWAVE microwave234 ;
+ OVEN_TABLE oven_table1;
+ FRIDGE fridge1;
+ 
 void Key(bool* keys, float speed)
 {
 	if(keys['B']){
@@ -397,8 +404,32 @@ void Key(bool* keys, float speed)
 		comedina123.openOrCloseStaircase(2);
 			if (keys['3'])
 		comedina123.openOrCloseStaircase(3);
-			if(keys['q'])
+			if(keys['q']||keys['Q'])
 				comedina123.openOrCloseStaircase(0) ;
+
+
+					if(keys['4'])
+				microwave234.openCloseDoor(1) ;
+					if(keys['5'])
+					{
+						std::cout<<"test open and close state " ;
+						microwave234.openCloseDoor(0) ;
+					}
+
+						if(keys['6'])
+					{
+						oven_table1.openCloseDoor(0) ;
+					}
+						
+						if(keys['7'])
+					{
+						oven_table1.openCloseDoor(1) ;
+					}
+
+
+
+
+			
 	
 }
 

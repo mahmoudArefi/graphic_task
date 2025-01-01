@@ -18,6 +18,7 @@ MYTEXTURE::MYTEXTURE(){
 	bathRoomTexture.assign(6,0);
 	mainRoomTexture.assign(6,0);
 	kitchenTexture.assign(6,0);
+	fridgeTexture.assign(6,0);
 }
 
 void MYTEXTURE::InitAllTexture(){
@@ -27,6 +28,7 @@ void MYTEXTURE::InitAllTexture(){
 	initBathRoomTexture();
 	initMainRoomTexture();
 	initKitchenTexture();
+	initFridgeTexture();
 };
 
 
@@ -83,5 +85,15 @@ void MYTEXTURE:: initKitchenTexture (){
 	kitchenTexture[4] = LoadTexture("textures\\kitchenWall.bmp"); 
 	kitchenTexture[5] = LoadTexture("textures\\kitchenWall.bmp"); 
 }
+
+void MYTEXTURE::initFridgeTexture(){
+	fridgeDoor = LoadTexture("textures\\fidgeTexture.bmp");
+	ovenDoor = LoadTexture("textures\\oven.bmp");
+	microDoor = LoadTexture("textures\\microwave.bmp");
+	int test = LoadTexture("textures\\OIP.bmp", 255);
+	for(int i = 0 ; i<6 ; i++ ){
+		fridgeTexture[i] = test;
+	}
+};
 
 

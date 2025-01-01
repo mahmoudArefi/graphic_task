@@ -2,7 +2,7 @@
 #define MYCLASS_H
 #include <vector>
 
-enum TextureType { comedina, Staircase,wardrobe , entryRoom, bathRoom, mainRoom, kitchenRoom,  null};
+enum TextureType { comedina, fridge, Staircase,wardrobe , entryRoom, bathRoom, mainRoom, kitchenRoom,  null};
 
  
  

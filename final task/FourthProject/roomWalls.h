@@ -11,6 +11,7 @@ private :
 	enum RoomType {kitchen , bathroom, mainRoom , entryRoom};
 	void drawEntryRoom(); 
 	void drawMeanRoom(); 
+	void drawKitchenRoom(); 
     float roomHeight  , roomWidth  , roomDepth ;
 };
 

@@ -15,8 +15,12 @@ public:
 	std::vector<int> bathRoomTexture;
 	std::vector<int> mainRoomTexture;
 	std::vector<int> kitchenTexture;
+	std::vector<int> fridgeTexture;
 
 	int wardrobeDoor ; 
+	int fridgeDoor ;
+	int ovenDoor ;
+	int microDoor ;
     void InitAllTexture();
 
 private : 
@@ -26,6 +30,7 @@ private :
 	void initBathRoomTexture();
 	void initMainRoomTexture();
 	void initKitchenTexture();
+	void initFridgeTexture();
 };
 
 

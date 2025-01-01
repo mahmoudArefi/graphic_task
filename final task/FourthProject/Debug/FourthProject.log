@@ -14,6 +14,7 @@
          Debug\myPolygon.obj
          Debug\mySounds.obj
          Debug\myTexture.obj
+         Debug\ovenTable.obj
          Debug\parallelRectangle.obj
          Debug\roomWalls.obj
          Debug\Sound.obj
@@ -22,6 +23,7 @@
          Debug\table.obj
          Debug\texture.obj
          Debug\wardrobe.obj
+<<<<<<< HEAD
          Debug\Wave.obj
          FourthProject.vcxproj -> C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.exe
      1>Done Building Project "C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\FourthProject\FourthProject.vcxproj" (Build target(s)).
@@ -29,3 +31,11 @@
 Build succeeded.
 
 Time Elapsed 00:00:02.19
+=======
+         FourthProject.vcxproj -> C:\Users\yamen\OneDrive\Desktop\بيانيات\graphic_task\final task\Debug\Tasks.exe
+     1>Done Building Project "C:\Users\yamen\OneDrive\Desktop\بيانيات\graphic_task\final task\FourthProject\FourthProject.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.58
+>>>>>>> kitchen-room

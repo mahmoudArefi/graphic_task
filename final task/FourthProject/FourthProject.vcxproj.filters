@@ -155,6 +155,14 @@
     </ClCompile>
     <ClCompile Include="elevator.cpp">
       <Filter>Source Files\special_objects\elevator</Filter>
+    <ClCompile Include="fridge.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ovenTable.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="microwave.cpp">
+      <Filter>Source Files\special_objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -170,6 +178,7 @@
     <ClInclude Include="table.h">
       <Filter>Header Files\special_objects</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Model_3DS.h">
       <Filter>Resource Files\Modeling\model_headers</Filter>
     </ClInclude>
@@ -211,6 +220,16 @@
     </ClInclude>
     <ClInclude Include="elevator.h">
       <Filter>Source Files\special_objects\elevator</Filter>
+=======
+    <ClInclude Include="fridge.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ovenTable.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="microwave.h">
+      <Filter>Header Files\special_objects</Filter>
+>>>>>>> kitchen-room
     </ClInclude>
   </ItemGroup>
 </Project>
