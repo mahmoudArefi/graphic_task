@@ -7,7 +7,6 @@
 #include "camera.h"
 #include <fstream>
 
-
 #include "parallelRectangle.h"
 #include "roomWalls.h"
 #include "comedina.h"
@@ -24,6 +23,7 @@
 #include "sound.h"
 #include "Wave.h"
 #include "mySounds.h"
+#include "elevator.h"
 #include <iostream>
 #include <float.h>
 HDC			hDC = NULL;		// Private GDI Device Context
@@ -242,10 +242,6 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  WARDROBE wardrobe222 ;
  COMEDINA comedina123 ;
  
-
-
-
-
  
  //extern std::vector<int> staircaseTexture ; 
  //extern std::vector<int> comedinaTexture  ; 
@@ -254,14 +250,15 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 
  float x1 = 0 , x2 = 0 , x3 = 0 , x4 = 0 ;
 
-GLfloat Room1LightPos[] = { -10.0f, 5.0f, -10.0f, 1.0f };
+GLfloat Room1LightPos[] = { 12.0f, 5.0f, 10.0f, 0.0f };
 GLfloat Room2LightPos[] = { 10.0f, 5.0f, -10.0f, 1.0f };
 GLfloat Room3LightPos[] = { -1.0f, 1.0f, 5.0f, 1.0f };
-GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 1.0f };
+GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 0.0f };
 
-GLfloat LightAmb[] = { 0.5,0.5f,0.5f,1.0f };
-GLfloat LightDiff[] = { 0.6f,0.6f,0.6f,1.0f };
-GLfloat LightSpec[] = { 0.2f,0.2f,0.2f,1.0f };
+    // إعداد خصائص الإضاءة لتجنب مرور الضوء عبر الجدران
+    GLfloat LightAmb[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // تقليل الإضاءة المحيطة أكثر
+    GLfloat LightDiff[] = { 0.9f, 0.9f, 0.9f, 1.0f }; // زيادة شدة الضوء المنتشر
+    GLfloat LightSpec[] = { 0.5f, 0.5f, 0.5f, 1.0f }; // تخفيف اللمعان لجعل الانعكاس أقل حدة
 
 
 GLfloat MatAmb[] = { 1.0f,0.0f,0.0f,1.0f };
@@ -275,89 +272,96 @@ GLfloat MatShn[] = { 128.0f };
  MySounds mySoundsObj ;
  Model_3DS *tank ; 
 
+int InitGL(GLvoid) {
+    glShadeModel(GL_SMOOTH);
+    glClearColor(0.1f, 0.1f, 0.1f, 0.5f);
+    glClearDepth(1.0f);
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LEQUAL);
+    glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+    glEnable(GL_TEXTURE_2D);
 
+    myTextureObj = MYTEXTURE();
+    myTextureObj.InitAllTexture();
 
+    //AllocConsole();
+    //freopen("CONOUT$", "w", stdout);
+    //freopen("CONIN$", "r", stdin);
 
-int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
-{
-	
-	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-	glClearColor(0.1f, 0.1f, 0.1f, 0.5f);				// Black Background
-	glClearDepth(1.0f);									// Depth Buffer Setup
-	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
-	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);	// Really Nice Perspective Calculations
-	glEnable(GL_TEXTURE_2D);
- 
-	myTextureObj = MYTEXTURE();
-	myTextureObj.InitAllTexture();
-//AllocConsole();
-// freopen("CONOUT$", "w", stdout);
-// freopen("CONIN$", "r", stdin);
- 
+    // تحميل خامات السماء
+    SKYFRONT = LoadTexture("front.bmp", 255);
+    SKYBACK = LoadTexture("back.bmp", 255);
+    SKYLEFT = LoadTexture("left.bmp", 255);
+    SKYRIGHT = LoadTexture("right.bmp", 255);
+    SKYUP = LoadTexture("up.bmp", 255);
+    SKYDOWN = LoadTexture("down.bmp", 255);
+    glDisable(GL_TEXTURE_2D);
 
+    // تفعيل الإضاءة العامة
+    glEnable(GL_LIGHTING);
 
+    //// إعداد الضوء لغرفة 1
+    //glEnable(GL_LIGHT0);
+    //glLightfv(GL_LIGHT0, GL_POSITION, Room1LightPos);
+    //glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmb);
+    //glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiff);
+    //glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpec);
 
-	// skybox
-	SKYFRONT = LoadTexture("front.bmp", 255);
-	SKYBACK = LoadTexture("back.bmp", 255);
-	SKYLEFT = LoadTexture("left.bmp", 255);
-	SKYRIGHT = LoadTexture("right.bmp", 255);
-	SKYUP = LoadTexture("up.bmp", 255);
-	SKYDOWN = LoadTexture("down.bmp", 255);
-	// note if you load a image the opengl while on the GL_Texture_2D himself
-	glDisable(GL_TEXTURE_2D);
-	
+    // إعداد الضوء لغرفة 2
+    glEnable(GL_LIGHT1);
+    glLightfv(GL_LIGHT1, GL_POSITION, Room2LightPos);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
 
-	glEnable(GL_LIGHTING);
-//glEnable(GL_LIGHT0); // Room 1
-//    glLightfv(GL_LIGHT0, GL_POSITION, Room1LightPos);
-//    glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmb);
-//    glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiff);
-//    glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpec);
+    //// إعداد الضوء لغرفة 3
+    //glEnable(GL_LIGHT2);
+    //glLightfv(GL_LIGHT2, GL_POSITION, Room3LightPos);
+    //glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmb);
+    //glLightfv(GL_LIGHT2, GL_DIFFUSE, LightDiff);
+    //glLightfv(GL_LIGHT2, GL_SPECULAR, LightSpec);
 
-    //glEnable(GL_LIGHT1); // Room 2
-    //glLightfv(GL_LIGHT1, GL_POSITION, Room2LightPos);
-    //glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
-    //glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
-    //glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
-
-    glEnable(GL_LIGHT2); // Room 3
-    glLightfv(GL_LIGHT2, GL_POSITION, Room3LightPos);
-    glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmb);
-    glLightfv(GL_LIGHT2, GL_DIFFUSE, LightDiff);
-    glLightfv(GL_LIGHT2, GL_SPECULAR, LightSpec);
-
-    //glEnable(GL_LIGHT3); // Room 4
+    //// إعداد الضوء لغرفة 4
+    //glEnable(GL_LIGHT3);
     //glLightfv(GL_LIGHT3, GL_POSITION, Room4LightPos);
     //glLightfv(GL_LIGHT3, GL_AMBIENT, LightAmb);
     //glLightfv(GL_LIGHT3, GL_DIFFUSE, LightDiff);
     //glLightfv(GL_LIGHT3, GL_SPECULAR, LightSpec);
 
-	
-	glMaterialfv(GL_FRONT, GL_AMBIENT, MatAmb);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, MatDif);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, MatSpec);
-	glMaterialfv(GL_FRONT, GL_SHININESS, MatShn);
-	glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_COLOR_MATERIAL);
 
-	MyCamera = Camera();
-	MyCamera.Position.x = 0;
-	MyCamera.Position.y = -0;
-	MyCamera.Position.z = +0;
+    MyCamera = Camera();
+    MyCamera.Position.x = 0;
+    MyCamera.Position.y = 0;
+    MyCamera.Position.z = 0;
 
-	
-	myModelObj.initAllMyModel();
-	mySoundsObj.initAllSounds();
-	
+    myModelObj.initAllMyModel();
+    mySoundsObj.initAllSounds();
 
-
-	return TRUE;										// Initialization Went OK
+    return TRUE;
 }
 
 
+ELEVATOR elevator= ELEVATOR(12,3,3) ;
 void Key(bool* keys, float speed)
 {
+	if(keys['B']){
+ 
+		elevator.takeElevetorUpOrDown(true);
+	}
+	if(keys['N']){
+ 
+		elevator.takeElevetorUpOrDown(false);
+	}
+
+		if(keys['R']){
+		elevator.openCloseElevatorDoor(false);
+	}
+				if(keys['U']){
+		elevator.openCloseElevatorDoor(true);
+	}
+
+
 	if (keys['S'])
 		MyCamera.RotateX(-6 * speed);
 	if (keys['W'])
@@ -397,18 +401,6 @@ void Key(bool* keys, float speed)
 				comedina123.openOrCloseStaircase(0) ;
 	
 }
-//void move_tank(float speed){
-//
-//	if (keys['Y'])
-//		tank->pos.z -=speed;
-//	if (keys['H'])
-//		tank->pos.z +=speed;
-//	if (keys['J'])
-//		tank->pos.x +=speed;
-//	if (keys['G'])
-//		tank->pos.x -=speed;
-//
-//}
 
 int  angle = 0;
 double k = 0 , l=0 , h=0;
@@ -431,8 +423,6 @@ void mouse(int mouseX, int mouseY, bool isClicked, bool isRClicked)
 
 
 }
-
-
 void drawCylinder(float radius, float height, int segments, float red, float green, float blue) {
     glColor3f(red, green, blue); // Set color
      //float Pz = 3.14f;
@@ -479,8 +469,37 @@ void drawCylinder(float radius, float height, int segments, float red, float gre
 
 //animation variables 
 float wardrobeDoorRotateAngle = 0 ; 
-
 RoomWalls roomWalls ; 
+
+void drawStar() {
+    glBegin(GL_TRIANGLES); // Using triangles to draw a star
+    // Outer points of the star
+    glVertex3f(0.0f, 0.5f, 0.0f);
+    glVertex3f(-0.2f, 0.1f, 0.0f);
+    glVertex3f(0.2f, 0.1f, 0.0f);
+
+    glVertex3f(0.0f, -0.5f, 0.0f);
+    glVertex3f(-0.2f, -0.1f, 0.0f);
+    glVertex3f(0.2f, -0.1f, 0.0f);
+
+    glVertex3f(0.5f, 0.0f, 0.0f);
+    glVertex3f(0.1f, -0.2f, 0.0f);
+    glVertex3f(0.1f, 0.2f, 0.0f);
+
+    glVertex3f(-0.5f, 0.0f, 0.0f);
+    glVertex3f(-0.1f, -0.2f, 0.0f);
+    glVertex3f(-0.1f, 0.2f, 0.0f);
+
+    // Inner points connecting the star
+    glVertex3f(0.0f, 0.2f, 0.0f);
+    glVertex3f(-0.1f, 0.0f, 0.0f);
+    glVertex3f(0.1f, 0.0f, 0.0f);
+
+    glVertex3f(0.0f, -0.2f, 0.0f);
+    glVertex3f(-0.1f, 0.0f, 0.0f);
+    glVertex3f(0.1f, 0.0f, 0.0f);
+    glEnd();
+}
 
  
 int DrawGLScene(GLvoid) {
@@ -497,15 +516,18 @@ int DrawGLScene(GLvoid) {
     MyCamera.Render(); // Apply camera transformations
     Key(keys, 0.05);
 
+	drawStar();
    // move_tank(0.1);
 
 	//myModelObj.tank->Draw();
 	//tree->Draw();
 	glTranslatef(0,-2,-20);
 	glRotatef(25, 1 , 0, 0 );
-   roomWalls.drawHouse();
 
 
+    roomWalls.drawHouse();
+	glTranslatef(-(8+1.5 + 0.5) , -2 + 12/3 , 1 ) ;
+	elevator.draw();
 	//	comedina123.openOrCloseStaircase(1);}
     return TRUE;
 }

@@ -94,6 +94,9 @@
     <Filter Include="Source Files\Structure_files\Sound">
       <UniqueIdentifier>{e9e0efa7-97fc-4630-92c6-6cfb1933f8eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\special_objects\elevator">
+      <UniqueIdentifier>{40f4e1bb-910f-42d4-badf-46f8ced71be5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -150,6 +153,9 @@
     <ClCompile Include="mySounds.cpp">
       <Filter>Source Files\Structure_files\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="elevator.cpp">
+      <Filter>Source Files\special_objects\elevator</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="comedina.h">
@@ -202,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="mySounds.h">
       <Filter>Source Files\Structure_files\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="elevator.h">
+      <Filter>Source Files\special_objects\elevator</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -69,6 +69,7 @@
     <ClCompile Include="3DTexture.cpp" />
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="comedina.cpp" />
+    <ClCompile Include="elevator.cpp" />
     <ClCompile Include="Model_3DS.cpp" />
     <ClCompile Include="Model_class.cpp" />
     <ClCompile Include="myModel.cpp" />
@@ -89,6 +90,7 @@
     <ClInclude Include="3DTexture.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="comedina.h" />
+    <ClInclude Include="elevator.h" />
     <ClInclude Include="modelClass.h" />
     <ClInclude Include="Model_3DS.h" />
     <ClInclude Include="myModel.h" />
