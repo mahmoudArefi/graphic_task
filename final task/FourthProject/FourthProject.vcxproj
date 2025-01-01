@@ -66,8 +66,11 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="comedina.cpp" />
+    <ClCompile Include="fridge.cpp" />
+    <ClCompile Include="microwave.cpp" />
     <ClCompile Include="myPolygon.cpp" />
     <ClCompile Include="myTexture.cpp" />
+    <ClCompile Include="ovenTable.cpp" />
     <ClCompile Include="parallelRectangle.cpp" />
     <ClCompile Include="roomWalls.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -78,8 +81,11 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="comedina.h" />
+    <ClInclude Include="fridge.h" />
+    <ClInclude Include="microwave.h" />
     <ClInclude Include="myPolygon.h" />
     <ClInclude Include="myTexture.h" />
+    <ClInclude Include="ovenTable.h" />
     <ClInclude Include="parallelRectangle.h" />
     <ClInclude Include="roomWalls.h" />
     <ClInclude Include="table.h" />

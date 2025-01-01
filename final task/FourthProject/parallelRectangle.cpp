@@ -27,6 +27,8 @@ void ParallelRectangle::drawParallelRectangle(float h, float w, float l, Texture
 			glEnable(GL_TEXTURE_2D);
         if (textureType == comedina) {
             textureList = myTextureObj.comedinaTexture;
+        } else if (textureType == fridge) {
+            textureList = myTextureObj.fridgeTexture;
         } else if (textureType == Staircase) {
             textureList = myTextureObj.staircaseTexture;
         } else if (textureType == wardrobe  ){

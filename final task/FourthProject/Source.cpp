@@ -14,11 +14,14 @@
 #include <windows.h>
 #include <iostream>
 #include "wardrobe.h"
+#include "fridge.h"
 #include "myPolygon.h"
 #include "myTexture.h"
+#include "ovenTable.h"
 #include <cmath>
 #include <GL/gl.h>
 #include "table.h"
+#include "microwave.h"
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
@@ -230,6 +233,10 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
  WARDROBE wardrobe245 ;
  WARDROBE wardrobe222 ;
  COMEDINA comedina123 ;
+ MICROWAVE microwave234 ;
+ OVEN_TABLE oven_table1;
+ FRIDGE fridge1;
+ 
 void Key(bool* keys, float speed)
 {
 	if (keys['S'])
@@ -259,13 +266,40 @@ void Key(bool* keys, float speed)
 	if (keys['0'])
 		wardrobe222.openOrCloseDoors() ; 
 	if (keys['1'])
-		comedina123.openOrCloseStaircase(1);
+	{
+	comedina123.openOrCloseStaircase(1);
+	
+	}
 		if (keys['2'])
 		comedina123.openOrCloseStaircase(2);
 			if (keys['3'])
 		comedina123.openOrCloseStaircase(3);
-			if(keys['q'])
+			if(keys['q']||keys['Q'])
 				comedina123.openOrCloseStaircase(0) ;
+
+
+					if(keys['4'])
+				microwave234.openCloseDoor(1) ;
+					if(keys['5'])
+					{
+						std::cout<<"test open and close state " ;
+						microwave234.openCloseDoor(0) ;
+					}
+
+						if(keys['6'])
+					{
+						oven_table1.openCloseDoor(0) ;
+					}
+						
+						if(keys['7'])
+					{
+						oven_table1.openCloseDoor(1) ;
+					}
+
+
+
+
+			
 	
 }
  
@@ -392,16 +426,18 @@ int DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 	glRotatef(20, 1 , 0 , 0 ) ;
 	//drawCylinder(1.0f, 2.0f, 32, 1.0f, 0.0f, 0.0f); // Red cylinder
 	TABLE table ; 
-	//table.draw(5,8,6);
-	    roomWalls.drawHouse();
+	// oven_table1.draw(7,14,6);
+	// fridge1.draw(12 ,5 ,5);
+	// table.draw(5,8,6);
+	
+	//microwave234.draw(1,2,1) ;
+	roomWalls.drawHouse();
+
+
 	//Draw_Skybox(0, 0, 0, 100, 100, 100);
-	//wardrobe222.draw(4.8, 6.4 ,3.2);
+	// wardrobe222.draw(4.8, 6.4 ,3.2);
 	//glTranslatef(10,0 , 0 ) ;
 	//	wardrobe222.draw(8 ,9 ,5);
-
-
-	
- 
 
 	return TRUE;
 }

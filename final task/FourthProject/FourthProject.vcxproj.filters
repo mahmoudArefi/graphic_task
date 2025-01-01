@@ -57,6 +57,15 @@
     <ClCompile Include="table.cpp">
       <Filter>Source Files\special_objects</Filter>
     </ClCompile>
+    <ClCompile Include="fridge.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ovenTable.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
+    <ClCompile Include="microwave.cpp">
+      <Filter>Source Files\special_objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="texture.h">
@@ -84,6 +93,15 @@
       <Filter>Header Files\project_headers</Filter>
     </ClInclude>
     <ClInclude Include="table.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="fridge.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ovenTable.h">
+      <Filter>Header Files\special_objects</Filter>
+    </ClInclude>
+    <ClInclude Include="microwave.h">
       <Filter>Header Files\special_objects</Filter>
     </ClInclude>
   </ItemGroup>

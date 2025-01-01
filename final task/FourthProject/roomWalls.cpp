@@ -9,6 +9,9 @@
 #include "comedina.h"
 #include "wardrobe.h"
 #include "table.h"
+#include "fridge.h"
+#include "ovenTable.h"
+#include "microwave.h"
 RoomWalls::RoomWalls() {
      roomHeight = 4;
 	 roomWidth = 8;
@@ -80,10 +83,7 @@ void RoomWalls::drawHouse() {
     glPopMatrix();
 
     // Top-right rectangle
-    glPushMatrix();
-    glTranslatef(roomWidth*0.505 , roomHeight * 0.505, 0.0f); // Top position (y positive)
-    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth, TextureType::kitchenRoom);
-    glPopMatrix();
+    drawKitchenRoom();
 
     // Bottom-right rectangle
     drawEntryRoom();
@@ -139,6 +139,57 @@ void RoomWalls::drawEntryRoom(){
 
     glPopMatrix();
 }
+
+void RoomWalls::drawKitchenRoom(){
+	ParallelRectangle prObj = ParallelRectangle();
+	extern  FRIDGE fridge1;
+	float fridgeH = roomHeight*0.6;
+	float fridgeW = roomWidth *0.12 ;
+	float fridgeD = roomDepth * 0.3 ;
+
+	extern OVEN_TABLE oven_table1;
+	float ovenH = roomHeight*0.4;
+	float ovenW = roomWidth *0.5 ;
+	float ovenD = roomDepth * 0.3 ;
+
+
+	//std::cout<< " H : " << warddropH << "    W : " << wardropeW << "     D :  " << wardropeD ; 
+	glPushMatrix();
+    glTranslatef(roomWidth*0.505 , roomHeight * 0.505, 0.0f); // Top position (y positive)
+    prObj.drawParallelRectangle(roomHeight, roomWidth, roomDepth, TextureType::kitchenRoom);
+
+	glTranslatef(0,fridgeH/2-(roomHeight*0.5),fridgeD/2-(roomDepth*0.5));
+
+	glTranslatef(roomWidth*0.4,0,0);
+    fridge1.draw(fridgeH, fridgeW ,fridgeD);
+
+	
+	glPopMatrix();
+	glPushMatrix();
+	glTranslatef(-ovenW*0.7,ovenH*0.2,0);
+	oven_table1.draw(ovenH, ovenW ,ovenD);
+
+	float microH = 1 ; 
+		float microW =2 ; 
+	float microD =1 ; 
+
+
+	glPopMatrix();
+	
+
+		 glTranslatef(-roomWidth*0.75 , -microH / 2  , 0 ) ;
+	extern MICROWAVE microwave234 ;  
+	microwave234.draw(microH,microW,microD);
+	 glPopMatrix();
+	glPopMatrix();
+
+
+    
+	
+}
+
+
+
 
 
 
