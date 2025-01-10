@@ -57,12 +57,13 @@ void ELEVATOR::draw() {
 }
 
 
-
+extern MYTEXTURE myTextureObj ;
 void ELEVATOR::drawElevatorDoor(int floorNumber){
+	int test = 5 ;
     // Draw topSpace 
     glPushMatrix();
 	glTranslatef(0, oneFloorH*0.5 - topSpaceH*0.5  , 0);
-    myPolygonObj.drawPolygon(topSpaceH, w );
+    myPolygonObj.drawPolygon(topSpaceH, w ,test );
     glPopMatrix();
 	
 	glPushMatrix();
@@ -70,13 +71,13 @@ void ELEVATOR::drawElevatorDoor(int floorNumber){
     // Draw side space on right  
     glPushMatrix();
     glTranslatef(w * 0.5 - sideSpace*0.5,  0, 0);
-    myPolygonObj.drawPolygon(theElevatorDoorH,sideSpace);
+    myPolygonObj.drawPolygon(theElevatorDoorH,sideSpace,test);
     glPopMatrix();
  
     // Draw side space on left
     glPushMatrix();
     glTranslatef(sideSpace*0.5- w * 0.5  , 0 , 0);
-    myPolygonObj.drawPolygon(theElevatorDoorH,sideSpace);
+    myPolygonObj.drawPolygon(theElevatorDoorH,sideSpace,test);
     glPopMatrix();
 
 	float doorWidth =  (floorNumber==activeDoor) ? activeDoorW : theElevatorDoorW  ;

@@ -18,6 +18,18 @@ MYTEXTURE::MYTEXTURE(){
 	bathRoomTexture.assign(6,0);
 	mainRoomTexture.assign(6,0);
 	kitchenTexture.assign(6,0);
+
+	//resturnat 
+	restuarntTableTexture.assign(6,0);
+	resturantChairTexture.assign(6,0);
+	artBoard.assign(3,0);
+	majlaTexture.assign(6,0);
+	kithenInterface.assign(6,0);
+	kithenInterfaceDoor.assign(6,0);
+
+
+	fridgeTexture.assign(6,0);
+	
 }
 
 void MYTEXTURE::InitAllTexture(){
@@ -27,8 +39,26 @@ void MYTEXTURE::InitAllTexture(){
 	initBathRoomTexture();
 	initMainRoomTexture();
 	initKitchenTexture();
+	
+	//restuart 
+	initResturantTexture();
+
+	//elevator
+	elevatorDoor = LoadTexture("textures\\elevatorTexture\\elevatorDoor");
+
+	
+	initFridgeTexture();
 };
 
+void MYTEXTURE::initFridgeTexture(){
+  fridgeDoor = LoadTexture("textures\\fidgeTexture.bmp");
+  ovenDoor = LoadTexture("textures\\oven.bmp");
+  microDoor = LoadTexture("textures\\microwave.bmp");
+  int test = LoadTexture("textures\\OIP.bmp", 255);
+  for(int i = 0 ; i<6 ; i++ ){
+    fridgeTexture[i] = test;
+  }
+};
 
 void MYTEXTURE::initComedinaTexture(){
 	int drawerSide = LoadTexture("textures\\drawerSide.bmp", 255) ; 
@@ -84,4 +114,60 @@ void MYTEXTURE:: initKitchenTexture (){
 	kitchenTexture[5] = LoadTexture("textures\\kitchenWall.bmp"); 
 }
 
+
+void MYTEXTURE::initResturantTexture(){
+	resturantChairTexture[0] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+	resturantChairTexture[1] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+	resturantChairTexture[2] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+	resturantChairTexture[3] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+	resturantChairTexture[4] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+	resturantChairTexture[5] = LoadTexture("restuarntTexture\\chair_back.bmp"); 
+
+
+	restuarntTableTexture[0] = LoadTexture("restuarntTexture\\table.bmp"); 
+	restuarntTableTexture[1] = LoadTexture("restuarntTexture\\table.bmp"); 
+	restuarntTableTexture[2] = LoadTexture("restuarntTexture\\table.bmp"); 
+	restuarntTableTexture[3] = LoadTexture("restuarntTexture\\table.bmp"); 
+	restuarntTableTexture[4] = LoadTexture("restuarntTexture\\table.bmp"); 
+	restuarntTableTexture[5] = LoadTexture("restuarntTexture\\table.bmp"); 
+
+	artBoard[0] = LoadTexture("restuarntTexture\\art2.bmp");
+	artBoard[1] = LoadTexture("restuarntTexture\\art1.bmp");
+	artBoard[2] = LoadTexture("restuarntTexture\\art3.bmp");
+
+	//artBoard[0] = LoadTexture("restuarntTexture\\test (1).bmp");
+	//artBoard[1] = LoadTexture("restuarntTexture\\test (2).bmp");
+	//artBoard[2] = LoadTexture("restuarntTexture\\test (3).bmp");
+
+	restuarntFloor = LoadTexture("restuarntTexture\\restuarnt_floor.bmp"); 
+	restuarntRooF = LoadTexture("restuarntTexture\\restuarnt_roof.bmp"); 
+	restuarntWall = LoadTexture("restuarntTexture\\restuarnt_wall.bmp"); 
+
+
+
+	majlaTexture[0] = LoadTexture("restuarntTexture\\majlaDoors.bmp");
+		majlaTexture[1] = LoadTexture("restuarntTexture\\majlaDoors.bmp");
+			majlaTexture[2] = LoadTexture("restuarntTexture\\majla.bmp");
+				majlaTexture[3] = LoadTexture("restuarntTexture\\majlaDoors.bmp");
+					majlaTexture[4] = LoadTexture("restuarntTexture\\majlaDoors.bmp");
+						majlaTexture[5] = LoadTexture("restuarntTexture\\majlaDoors.bmp");
+
+
+	kithenInterface[0] = restuarntWall; 
+	kithenInterface[1] = LoadTexture("textures\\kitchenWall.bmp"); 
+	kithenInterface[4] = LoadTexture("restuarntTexture\\interfaceWood.bmp"); 
+	kithenInterface[5] = LoadTexture("restuarntTexture\\interfaceWood.bmp"); 
+
+	kithenInterfaceDoor[0] = LoadTexture("restuarntTexture\\interfaceDoor.bmp");
+	kithenInterfaceDoor[1] = LoadTexture("restuarntTexture\\interfaceDoor.bmp");
+
+	kithenInterfaceDoor[2] = LoadTexture("restuarntTexture\\chair_back.bmp");
+	kithenInterfaceDoor[3] = LoadTexture("restuarntTexture\\chair_back.bmp");
+	kithenInterfaceDoor[4] = LoadTexture("restuarntTexture\\chair_back.bmp");
+	kithenInterfaceDoor[5] = LoadTexture("restuarntTexture\\chair_back.bmp");
+
+
+	glass = LoadTexture("restuarntTexture\\glass.bmp"); 
+
+}
 

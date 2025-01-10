@@ -15,7 +15,7 @@ private:
 public:
     WARDROBE(); // Constructor with default values
     void draw(float h , float w , float l);              // Method to draw the object with rotation
-	void openOrCloseDoors();
+	void openOrCloseDoors(bool isOpen);
 };
 
 #endif // COMEDINA_H

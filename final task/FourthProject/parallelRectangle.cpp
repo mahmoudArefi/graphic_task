@@ -45,6 +45,34 @@ void ParallelRectangle::drawParallelRectangle(float h, float w, float l, Texture
 			textureList = myTextureObj.kitchenTexture ;
 		}
 
+
+	//restuarnt 
+	if  (textureType == restuarntTabel){
+			textureList = myTextureObj.restuarntTableTexture ;
+		}
+	else if  (textureType == resturantChair){
+			textureList = myTextureObj.resturantChairTexture ;
+		}
+
+			else if  (textureType == majla){
+			textureList = myTextureObj.majlaTexture ;
+		}
+
+		else if  (textureType == interfaceWall){
+			textureList = myTextureObj.kithenInterface ;
+		}
+		else if  (textureType == interfaceDoor){
+			textureList = myTextureObj.kithenInterfaceDoor ;
+		}
+
+			else if  (textureType == fridge){
+			textureList = myTextureObj.fridgeTexture ;
+		}
+
+
+
+
+
     }
 
 
