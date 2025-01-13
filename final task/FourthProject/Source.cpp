@@ -617,7 +617,7 @@ int DrawGLScene(GLvoid) {
 	//glTranslatef(+11,-1,-25);  // resturant transfer
 	
 
-    roomWalls.drawHouse();
+    //roomWalls.drawHouse();
 	//display();
 	
 	//glTranslatef(0,0,-14);
@@ -625,7 +625,7 @@ int DrawGLScene(GLvoid) {
 
 	glTranslatef(20,0,-shopDepth*0.5 );
 	//glTranslatef(20 , 0 , 0 ) ;
-	//resturnat.draw();
+	resturnat.draw();
 
 	//drawTransparentPolygon();
 	/*drawTexturedTransparentPolygon(myTextureObj.artBoard[0]);
