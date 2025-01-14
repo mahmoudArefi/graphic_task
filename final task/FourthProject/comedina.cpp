@@ -12,7 +12,7 @@
 
 // Constructor: Initializes the rotation angle to 0
 COMEDINA::COMEDINA() 
-     {staircaseToOpenNum = 0 ;}
+     {staircaseToOpenNum = 0 ; staircaseTrans.assign(3,0);}
 
 // Method to draw the rotating object
 void COMEDINA::draw(float height , float weight , float length ) {
@@ -35,19 +35,28 @@ void COMEDINA::draw(float height , float weight , float length ) {
 void COMEDINA::drawStaircase(int rank){
 	if(rank<0 || rank > 3 ){return;}
 	glPushMatrix();
-	glTranslated(0,(4-(2*rank))*(h/6) ,rank==staircaseToOpenNum?l:0);
+	glTranslated(0,(4-(2*rank))*(h/6) ,staircaseTrans[rank-1]);
 	glRotatef(-90, 1, 0, 0); // Rotate around the Y-axis
 	parallelRectangleObject.drawParallelRectangle(l,w,h/3,TextureType::Staircase);
 	glPopMatrix();
 }
 
-void COMEDINA::openOrCloseStaircase(int sRank){
-	if(staircaseToOpenNum==sRank){
-		//staircaseToOpenNum = 0 ; 
+void COMEDINA::openOrCloseStaircase(int sRank,bool isOpen){
+	float oldValue = staircaseTrans[sRank-1] ;
+	if(isOpen && oldValue<l)
+	oldValue+=0.1 ;
+	else if (!isOpen && oldValue>0) 
+	oldValue-=0.1 ;
+
+	staircaseTrans[sRank-1] = oldValue ;
+	
+	
+
+
+	for (int i =0 ; i<3 ;i++){
+		std::cout<< staircaseTrans[i]  << "     " ;
 	}
-	else{
-		staircaseToOpenNum = sRank ; 
-	}
+	std::cout<<"isOpen = " << isOpen << "value   " << oldValue <<  std::endl ;
 }
 
 

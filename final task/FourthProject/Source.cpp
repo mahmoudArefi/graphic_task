@@ -26,10 +26,21 @@
 #include "elevator.h"
 #include <iostream>
 #include <float.h>
+#include "restaurant.h"
+#include "hall.h"
+#include "rTable.h"
+
+#include "fridge.h"
+#include "microwave.h"
+#include "ovenTable.h"
+#include "pharmacy.h"
+
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Cntext
 HWND		hWnd = NULL;		// Holds Our Window Handle
 HINSTANCE	hInstance;		// Holds The Instance Of The Application
+
+
 
 bool	keys[256];			// Array Used For The Keyboard Routine
 bool	active = TRUE;		// Window Active Flag Set To TRUE By Default
@@ -235,6 +246,8 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 	glColor3f(1, 1, 1);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+
 }
 
 
@@ -250,29 +263,18 @@ void Draw_Skybox(float x, float y, float z, float width, float height, float len
 
  float x1 = 0 , x2 = 0 , x3 = 0 , x4 = 0 ;
 
-GLfloat Room1LightPos[] = { 12.0f, 5.0f, 10.0f, 0.0f };
-GLfloat Room2LightPos[] = { 10.0f, 5.0f, -10.0f, 1.0f };
-GLfloat Room3LightPos[] = { -1.0f, 1.0f, 5.0f, 1.0f };
-GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 0.0f };
-
-    // إعداد خصائص الإضاءة لتجنب مرور الضوء عبر الجدران
-    GLfloat LightAmb[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // تقليل الإضاءة المحيطة أكثر
-    GLfloat LightDiff[] = { 0.9f, 0.9f, 0.9f, 1.0f }; // زيادة شدة الضوء المنتشر
-    GLfloat LightSpec[] = { 0.5f, 0.5f, 0.5f, 1.0f }; // تخفيف اللمعان لجعل الانعكاس أقل حدة
-
-
-GLfloat MatAmb[] = { 1.0f,0.0f,0.0f,1.0f };
-GLfloat MatDif[] = { 0.6f,0.6f,0.6f,1.0f };
-GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f };
-
-GLfloat MatShn[] = { 128.0f };
- 
 
  MYMODEL myModelObj ; 
  MySounds mySoundsObj ;
  Model_3DS *tank ; 
+ 
+ MICROWAVE microwave234 ;
+ OVEN_TABLE oven_table1;
+ FRIDGE fridge1;
+
 
 int InitGL(GLvoid) {
+
     glShadeModel(GL_SMOOTH);
     glClearColor(0.1f, 0.1f, 0.1f, 0.5f);
     glClearDepth(1.0f);
@@ -280,6 +282,8 @@ int InitGL(GLvoid) {
     glDepthFunc(GL_LEQUAL);
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
     glEnable(GL_TEXTURE_2D);
+
+
 
     myTextureObj = MYTEXTURE();
     myTextureObj.InitAllTexture();
@@ -297,36 +301,40 @@ int InitGL(GLvoid) {
     SKYDOWN = LoadTexture("down.bmp", 255);
     glDisable(GL_TEXTURE_2D);
 
-    // تفعيل الإضاءة العامة
-    glEnable(GL_LIGHTING);
 
-    //// إعداد الضوء لغرفة 1
-    //glEnable(GL_LIGHT0);
-    //glLightfv(GL_LIGHT0, GL_POSITION, Room1LightPos);
-    //glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmb);
-    //glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiff);
-    //glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpec);
 
-    // إعداد الضوء لغرفة 2
-    glEnable(GL_LIGHT1);
-    glLightfv(GL_LIGHT1, GL_POSITION, Room2LightPos);
-    glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
-    glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
-    glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);
+GLfloat Room1LightPos[] = { 12.0f, 5.0f, 10.0f, 0.0f };
+GLfloat Room2LightPos[] = { 24.0f, 10.0f, 5.0f, 0.0f };
+GLfloat Room3LightPos[] = { -1.0f, 1.0f, 5.0f, 1.0f };
+GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 0.0f };
 
-    //// إعداد الضوء لغرفة 3
-    //glEnable(GL_LIGHT2);
-    //glLightfv(GL_LIGHT2, GL_POSITION, Room3LightPos);
-    //glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmb);
-    //glLightfv(GL_LIGHT2, GL_DIFFUSE, LightDiff);
-    //glLightfv(GL_LIGHT2, GL_SPECULAR, LightSpec);
+    // إعداد خصائص الإضاءة لتجنب مرور الضوء عبر الجدران
+    GLfloat LightAmb[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // تقليل الإضاءة المحيطة أكثر
+    GLfloat LightDiff[] = { 0.9f, 0.9f, 0.9f, 1.0f }; // زيادة شدة الضوء المنتشر
+    GLfloat LightSpec[] = { 0.5f, 0.5f, 0.5f, 1.0f }; // تخفيف اللمعان لجعل الانعكاس أقل حدة
 
-    //// إعداد الضوء لغرفة 4
-    //glEnable(GL_LIGHT3);
-    //glLightfv(GL_LIGHT3, GL_POSITION, Room4LightPos);
-    //glLightfv(GL_LIGHT3, GL_AMBIENT, LightAmb);
-    //glLightfv(GL_LIGHT3, GL_DIFFUSE, LightDiff);
-    //glLightfv(GL_LIGHT3, GL_SPECULAR, LightSpec);
+
+GLfloat MatAmb[] = { 1.0f,0.0f,0.0f,1.0f };
+GLfloat MatDif[] = { 0.6f,0.6f,0.6f,1.0f };
+GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f };
+
+GLfloat MatShn[] = { 128.0f };
+
+
+
+    ////// إعداد الضوء لغرفة 3
+    ////glEnable(GL_LIGHT2);
+    ////glLightfv(GL_LIGHT2, GL_POSITION, Room3LightPos);
+    ////glLightfv(GL_LIGHT2, GL_AMBIENT, LightAmb);
+    ////glLightfv(GL_LIGHT2, GL_DIFFUSE, LightDiff);
+    ////glLightfv(GL_LIGHT2, GL_SPECULAR, LightSpec);
+
+    ////// إعداد الضوء لغرفة 4
+    ////glEnable(GL_LIGHT3);
+    ////glLightfv(GL_LIGHT3, GL_POSITION, Room4LightPos);
+    ////glLightfv(GL_LIGHT3, GL_AMBIENT, LightAmb);
+    ////glLightfv(GL_LIGHT3, GL_DIFFUSE, LightDiff);
+    ////glLightfv(GL_LIGHT3, GL_SPECULAR, LightSpec);
 
     glEnable(GL_COLOR_MATERIAL);
 
@@ -338,15 +346,123 @@ int InitGL(GLvoid) {
     myModelObj.initAllMyModel();
     mySoundsObj.initAllSounds();
 
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
     return TRUE;
 }
 
 
-ELEVATOR elevator= ELEVATOR(12,3,3) ;
+	ELEVATOR elevator= ELEVATOR(12,3,3) ;
+
+
+	double shopHeight = 5, shopWidth = 14 , shopDepth = 20 ; 
+
+	Restaurant resturnat  = Restaurant(20,14,20);
+	Kitchen kitchenObj = Kitchen(shopHeight,14,20*0.3); 
+	RestaurantHall restaurantHallObj = RestaurantHall(shopHeight,14,20*0.7);
+
+	Pharmacy pharmacyObj = Pharmacy(shopHeight,14,20) ;
+
+
+bool light = false , light1 = false , light2 = false , light3 = false  ;
+void light_test(){
+	
+GLfloat Room1LightPos[] = { 12.0f, 5.0f, 10.0f, 0.0f };
+GLfloat Room2LightPos[] = { 24.0f, 10.0f, 5.0f, 0.0f };
+GLfloat Room3LightPos[] = { -1.0f, 1.0f, 5.0f, 1.0f };
+GLfloat Room4LightPos[] = { 10.0f, 5.0f, 10.0f, 0.0f };
+
+    // إعداد خصائص الإضاءة لتجنب مرور الضوء عبر الجدران
+    GLfloat LightAmb[] = { 0.1f, 0.1f, 0.1f, 1.0f }; // تقليل الإضاءة المحيطة أكثر
+    GLfloat LightDiff[] = { 0.9f, 0.9f, 0.9f, 1.0f }; // زيادة شدة الضوء المنتشر
+    GLfloat LightSpec[] = { 0.5f, 0.5f, 0.5f, 1.0f }; // تخفيف اللمعان لجعل الانعكاس أقل حدة
+
+
+GLfloat MatAmb[] = { 1.0f,0.0f,0.0f,1.0f };
+GLfloat MatDif[] = { 0.6f,0.6f,0.6f,1.0f };
+GLfloat MatSpec[] = { 0.2f,0.2f,0.2f,1.0f };
+   
+if(light){	    // تفعيل الإضاءة العامة
+   glEnable(GL_LIGHTING);
+
+}else{ glDisable(GL_LIGHTING);glDisable(GL_LIGHT0);glDisable(GL_LIGHT1);}
+
+if(light1){
+    //// إعداد الضوء لغرفة 1
+    glEnable(GL_LIGHT0);
+    glLightfv(GL_LIGHT0, GL_POSITION, Room1LightPos);
+    glLightfv(GL_LIGHT0, GL_AMBIENT, LightAmb);
+    glLightfv(GL_LIGHT0, GL_DIFFUSE, LightDiff);
+    glLightfv(GL_LIGHT0, GL_SPECULAR, LightSpec);}
+else{
+	glDisable(GL_LIGHT0);
+}
+    //// إعداد الضوء لغرفة 2
+if(light2){   glEnable(GL_LIGHT1);
+    glLightfv(GL_LIGHT1, GL_POSITION, Room2LightPos);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);}
+else{glDisable(GL_LIGHT1);}
+
+
+
+if(light3){   glEnable(GL_LIGHT2);
+    glLightfv(GL_LIGHT1, GL_POSITION, Room3LightPos);
+    glLightfv(GL_LIGHT1, GL_AMBIENT, LightAmb);
+    glLightfv(GL_LIGHT1, GL_DIFFUSE, LightDiff);
+    glLightfv(GL_LIGHT1, GL_SPECULAR, LightSpec);}
+else{glDisable(GL_LIGHT2);}
+
+
+
+
+}
+
+
+
 void Key(bool* keys, float speed)
 {
+	if(keys['F']){
+		light = true;
+	}
+	if(keys['G']){
+		light1= true ;
+	}	if(keys['H']){
+		light2= true ;
+	}
+
+		if(keys['J']){
+		light = false;
+	}
+	if(keys['K']){
+		light1= false ;
+	}	if(keys['L']){
+		light2= false ;
+	}
+
+
+	if(keys['8']){
+		light3= true ;
+	}
+	if(keys['9']){
+		light3= false ;
+	}
+	
+
+
+
 	if(keys['B']){
- 
+		kitchenObj.openAndCloseDoor(true);
+	}
+	if(keys['N']){
+		kitchenObj.openAndCloseDoor(false);
+	}
+
+
+
+	if(keys['B']){
 		elevator.takeElevetorUpOrDown(true);
 	}
 	if(keys['N']){
@@ -365,175 +481,164 @@ void Key(bool* keys, float speed)
 	if (keys['S'])
 		MyCamera.RotateX(-6 * speed);
 	if (keys['W'])
-		MyCamera.RotateX(6* speed);
+		MyCamera.RotateX(9* speed);
 	if (keys['D'])
-		MyCamera.RotateY(-6 * speed);
+		MyCamera.RotateY(-9 * speed);
 	if (keys['Z'])
-		MyCamera.RotateZ(6* speed);
+		MyCamera.RotateZ(9* speed);
 	if (keys['X'])
-		MyCamera.RotateZ(-6 * speed);
+		MyCamera.RotateZ(-9 * speed);
 	if (keys['A'])
 		MyCamera.RotateY(6 * speed);
 	if (keys[VK_UP])
-		MyCamera.MoveForward(4 * speed);
+		MyCamera.MoveForward(9 * speed);
 	if (keys[VK_DOWN])
-		MyCamera.MoveForward(-4 * speed);
+		MyCamera.MoveForward(-9 * speed);
 	if (keys[VK_RIGHT])
-		MyCamera.MoveRight(4 * speed);
+		MyCamera.MoveRight(9 * speed);
 	if (keys[VK_LEFT])
-		MyCamera.MoveRight(-4 * speed);
+		MyCamera.MoveRight(-9 * speed);
 	if (keys['O'])
 		MyCamera.MoveUpward(4 * speed);
 	if (keys['L'])
 		MyCamera.MoveUpward(-4 * speed);
 	if (keys['0'])
-		wardrobe222.openOrCloseDoors() ; 
+		wardrobe222.openOrCloseDoors(true) ; 
+	if (keys['9'])
+		wardrobe222.openOrCloseDoors(false) ; 
+
+
 	if (keys['1']){
-			std::cout<<"hello" << std::endl ; 
-			//mySoundsObj.Sound.Play(0);
-			mySoundsObj.testSound.Sound.Play(0);
-		comedina123.openOrCloseStaircase(1);}
-		if (keys['2'])
-		comedina123.openOrCloseStaircase(2);
-			if (keys['3'])
-		comedina123.openOrCloseStaircase(3);
-			if(keys['q'])
-				comedina123.openOrCloseStaircase(0) ;
+		mySoundsObj.testSound.Sound.Play(0);
+		comedina123.openOrCloseStaircase(1,keys['Q']);
+	}
+	if (keys['2'])
+		comedina123.openOrCloseStaircase(2,keys['Q']);
+	if (keys['3'])
+		comedina123.openOrCloseStaircase(3,keys['Q']);
+	
+
+				if(keys['q']||keys['Q'])
+				//comedina123.openOrCloseStaircase(0) ;
+
+
+					if(keys['4'])
+				microwave234.openCloseDoor(1) ;
+					if(keys['5'])
+					{
+						std::cout<<"test open and close state " ;
+						microwave234.openCloseDoor(0) ;
+					}
+
+						if(keys['6'])
+					{
+						oven_table1.openCloseDoor(0) ;
+					}
+						
+						if(keys['7'])
+					{
+						oven_table1.openCloseDoor(1) ;
+					}
 	
 }
 
-int  angle = 0;
-double k = 0 , l=0 , h=0;
-
-void mouse(int mouseX, int mouseY, bool isClicked, bool isRClicked)
-{
-       if (mouseX){
-		    k = float((mouseX-520)*10)/640;
-			l = float((mouseY-520)*10)/640;
-			glTranslated(k,l,0);
-	       
-	      } 
-	   if(isClicked){
-	      h+=0.1f;
-	   }
-	    if(isRClicked){
-	      h-=0.1f;
-	   
-	   }
-
-
-}
-void drawCylinder(float radius, float height, int segments, float red, float green, float blue) {
-    glColor3f(red, green, blue); // Set color
-     //float Pz = 3.14f;
-
-    // Draw cylinder sides
-    glBegin(GL_QUAD_STRIP);
-    for (int i = 0; i <= segments; ++i) {
-        float angle = 2 * PI * i / segments;
-        float x = radius * cos(angle);
-        float z = radius * sin(angle);
-
-        // Texture coordinates and vertices
-        glTexCoord2f((float)i / segments, 0.0f); glVertex3f(x, 0.0f, z);
-        glTexCoord2f((float)i / segments, 1.0f); glVertex3f(x, height, z);
-    }
-    glEnd();
-
-    // Draw top circle
-    glBegin(GL_TRIANGLE_FAN);
-    glTexCoord2f(0.5f, 0.5f); glVertex3f(0.0f, height, 0.0f); // Center
-    for (int i = 0; i <= segments; ++i) {
-        float angle = 2 * PI * i / segments;
-        float x = radius * cos(angle);
-        float z = radius * sin(angle);
-        glTexCoord2f(0.5f + 0.5f * cos(angle), 0.5f + 0.5f * sin(angle));
-        glVertex3f(x, height, z);
-    }
-    glEnd();
-
-    // Draw bottom circle
-    glBegin(GL_TRIANGLE_FAN);
-    glTexCoord2f(0.5f, 0.5f); glVertex3f(0.0f, 0.0f, 0.0f); // Center
-    for (int i = 0; i <= segments; ++i) {
-        float angle = 2 * PI * i / segments;
-        float x = radius * cos(angle);
-        float z = radius * sin(angle);
-        glTexCoord2f(0.5f + 0.5f * cos(angle), 0.5f + 0.5f * sin(angle));
-        glVertex3f(x, 0.0f, z);
-    }
-    glEnd();
-}
-
-
-
-//animation variables 
-float wardrobeDoorRotateAngle = 0 ; 
+ 
+ 
+ 
 RoomWalls roomWalls ; 
 
-void drawStar() {
-    glBegin(GL_TRIANGLES); // Using triangles to draw a star
-    // Outer points of the star
-    glVertex3f(0.0f, 0.5f, 0.0f);
-    glVertex3f(-0.2f, 0.1f, 0.0f);
-    glVertex3f(0.2f, 0.1f, 0.0f);
-
-    glVertex3f(0.0f, -0.5f, 0.0f);
-    glVertex3f(-0.2f, -0.1f, 0.0f);
-    glVertex3f(0.2f, -0.1f, 0.0f);
-
-    glVertex3f(0.5f, 0.0f, 0.0f);
-    glVertex3f(0.1f, -0.2f, 0.0f);
-    glVertex3f(0.1f, 0.2f, 0.0f);
-
-    glVertex3f(-0.5f, 0.0f, 0.0f);
-    glVertex3f(-0.1f, -0.2f, 0.0f);
-    glVertex3f(-0.1f, 0.2f, 0.0f);
-
-    // Inner points connecting the star
-    glVertex3f(0.0f, 0.2f, 0.0f);
-    glVertex3f(-0.1f, 0.0f, 0.0f);
-    glVertex3f(0.1f, 0.0f, 0.0f);
-
-    glVertex3f(0.0f, -0.2f, 0.0f);
-    glVertex3f(-0.1f, 0.0f, 0.0f);
-    glVertex3f(0.1f, 0.0f, 0.0f);
-    glEnd();
-}
+ 
+//void display() {
+//    glClear(GL_COLOR_BUFFER_BIT);
+//
+//    glEnable(GL_BLEND);
+//    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+//
+//    glColor4f(1.0f, 0.0f, 0.0f, 0.5f); // Red with 50% transparency
+//
+//    glBegin(GL_POLYGON);
+//        glVertex3f(-0.5f, -0.5f, 0.0f);
+//        glVertex3f( 0.5f, -0.5f, 0.0f);
+//        glVertex3f( 0.5f,  0.5f, 0.0f);
+//        glVertex3f(-0.5f,  0.5f, 0.0f);
+//    glEnd();
+//
+//    glDisable(GL_BLEND);
+//
+//    glutSwapBuffers();
+//}
 
  
+ParallelRectangle prObj ;
+
+void drawTransparentPolygon() {
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    glBegin(GL_POLYGON);
+    glColor4f(1.0f, 0.0f, 0.0f, 0.5f); // Red color with 50% transparency
+    glVertex3f(-1.0f, -1.0f, 0.0f);
+    glVertex3f(1.0f, -1.0f, 0.0f);
+    glVertex3f(1.0f, 1.0f, 0.0f);
+    glVertex3f(-1.0f, 1.0f, 0.0f);
+    glEnd();
+
+    glDisable(GL_BLEND);
+}
+
+void drawTexturedTransparentPolygon(GLuint texture) {
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_TEXTURE_2D);
+
+    glBindTexture(GL_TEXTURE_2D, texture);
+
+    glBegin(GL_QUADS);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.5f); // 50% transparency
+    glTexCoord2f(0.0f, 0.0f); glVertex3f(-1.0f, -1.0f, 0.0f);
+    glTexCoord2f(1.0f, 0.0f); glVertex3f(1.0f, -1.0f, 0.0f);
+    glTexCoord2f(1.0f, 1.0f); glVertex3f(1.0f, 1.0f, 0.0f);
+    glTexCoord2f(0.0f, 1.0f); glVertex3f(-1.0f, 1.0f, 0.0f);
+    glEnd();
+
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_BLEND);
+}
+
+
+
 int DrawGLScene(GLvoid) {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glLoadIdentity();
-
-    //// Draw the static sphere at a fixed position
-    //glPushMatrix(); // Save the current transformation matrix
-    //glTranslatef(1, 1, 1); // Set the sphere's position
-    //glColor3f(1, 1, 1); // Optional: set color for the sphere
-    //auxSolidSphere(0.1); // Draw the sphere
-    //glPopMatrix(); // Restore the previous transformation matrix
-
     MyCamera.Render(); // Apply camera transformations
     Key(keys, 0.05);
 
-	drawStar();
-   // move_tank(0.1);
+	//std::cout<<light << "    " << light1 << "    " << light2 << std::endl ;
+	//glTranslatef(+11,-1,-25);  // resturant transfer
+	
 
-	//myModelObj.tank->Draw();
-	//tree->Draw();
-	glTranslatef(0,-2,-20);
-	glRotatef(25, 1 , 0, 0 );
+    //roomWalls.drawHouse();
+	//display();
+	
+	//glTranslatef(0,0,-14);
+	pharmacyObj.draw();
 
+	glTranslatef(20,0,-shopDepth*0.5 );
+	//glTranslatef(20 , 0 , 0 ) ;
+	resturnat.draw();
 
-    roomWalls.drawHouse();
-	glTranslatef(-(8+1.5 + 0.5) , -2 + 12/3 , 1 ) ;
-	elevator.draw();
-	//	comedina123.openOrCloseStaircase(1);}
+	//drawTransparentPolygon();
+	/*drawTexturedTransparentPolygon(myTextureObj.artBoard[0]);
+	glTranslatef(0,0,5);
+	drawTexturedTransparentPolygon(myTextureObj.artBoard[1]);*/
+	light_test();
+			
+	//glTranslatef(-(8+1.5 + 0.5) , -2 + 12/3 , 1 ) ;
+	//elevator.draw();
+	
+
     return TRUE;
 }
-
-
-
 
 
 GLvoid KillGLWindow(GLvoid)								// Properly Kill The Window
