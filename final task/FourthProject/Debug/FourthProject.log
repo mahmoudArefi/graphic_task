@@ -1,31 +1,274 @@
-﻿Build started 1/1/2025 9:29:35 PM.
-     1>Project "C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\FourthProject\FourthProject.vcxproj" on node 2 (Build target(s)).
+﻿Build started 1/14/2025 3:16:44 PM.
+     1>Project "C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\FourthProject\FourthProject.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /D _AFXDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /D _AFXDLL /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt 3DTexture.cpp box.cpp camera.cpp comedina.cpp elevator.cpp fridge.cpp hall.cpp kitchen.cpp microwave.cpp Model_3DS.cpp Model_class.cpp myModel.cpp myPolygon.cpp mySounds.cpp myTexture.cpp ovenTable.cpp parallelRectangle.cpp pharmacy.cpp restaurant.cpp roomWalls.cpp rTable.cpp Sound.cpp Source.cpp stand1.cpp StdAfx.cpp table.cpp texture.cpp wardrobe.cpp Wave.cpp
+         Wave.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         wardrobe.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(31): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(34): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(38): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(44): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(48): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(50): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(55): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(56): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(71): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(77): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\wardrobe.cpp(83): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         texture.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\texture.cpp(43): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+         table.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\table.cpp(15): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\table.cpp(17): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\table.cpp(18): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\table.cpp(20): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         StdAfx.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         stand1.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\stand1.cpp(17): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\stand1.cpp(22): warning C4305: 'argument' : truncation from 'double' to 'float'
          Source.cpp
+         Sound.cpp
+         _WIN32_WINNT not defined. Defaulting to _WIN32_WINNT_MAXVER (see WinSDKVer.h)
+         rTable.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(25): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(32): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(33): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(37): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(61): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(62): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\rtable.cpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         roomWalls.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\modelclass.h(12): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(98): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(106): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(107): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(108): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(111): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(112): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(113): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(116): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(117): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(118): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(122): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(125): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(127): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(131): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(137): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(152): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(162): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(166): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(170): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(179): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(180): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(181): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(184): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(185): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(186): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(191): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(194): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(196): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(202): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\roomwalls.cpp(213): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         restaurant.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\restaurant.cpp(30): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         pharmacy.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(25): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(31): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(36): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(52): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(53): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(57): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(62): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(64): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(72): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(74): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(77): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(79): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(89): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(90): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(95): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(100): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(104): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(110): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(116): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(124): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(128): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(138): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\pharmacy.cpp(139): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+         parallelRectangle.cpp
+         ovenTable.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(19): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(21): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(22): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(24): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(34): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(35): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(36): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(43): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(54): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(65): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(71): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(87): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\oventable.cpp(88): warning C4305: '-=' : truncation from 'double' to 'float'
+         myTexture.cpp
+         mySounds.cpp
+         myPolygon.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\mypolygon.cpp(15): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\mypolygon.cpp(16): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+         myModel.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\modelclass.h(12): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+         Model_class.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\modelclass.h(12): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+         Model_3DS.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\model_3ds.cpp(160): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(357) : see declaration of 'sprintf'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\model_3ds.cpp(182): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\model_3ds.cpp(212): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\model_3ds.cpp(891): warning C4996: 'sprintf': This function or variable may be unsafe. Consider using sprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(357) : see declaration of 'sprintf'
+         Generating Code...
+         Compiling...
+         microwave.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\microwave.cpp(24): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\microwave.cpp(27): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\microwave.cpp(39): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\microwave.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         kitchen.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(17): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(21): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(29): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(31): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(36): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(43): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(62): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(63): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(64): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(66): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(67): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(70): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(72): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(76): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(77): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(77): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(82): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(83): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(89): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(92): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(94): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(95): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(96): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(97): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(98): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\kitchen.cpp(103): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         hall.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\modelclass.h(12): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(31): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(34): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(40): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(50): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(51): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(54): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(61): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(66): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(72): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(75): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(78): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(78): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(80): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(109): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(115): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(123): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(127): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(142): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(158): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(159): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(169): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(170): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(180): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(181): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\hall.cpp(184): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         fridge.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\fridge.cpp(25): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\fridge.cpp(32): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+         elevator.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(19): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(21): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(22): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(25): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(27): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(45): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(49): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(65): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(70): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(73): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(79): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(85): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(88): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(95): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(106): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(107): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(114): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(118): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\elevator.cpp(123): warning C4244: '=' : conversion from 'float' to 'int', possible loss of data
+         comedina.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\comedina.cpp(47): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\comedina.cpp(49): warning C4305: '-=' : truncation from 'double' to 'float'
+         camera.cpp
+         box.cpp
+         3DTexture.cpp
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\3dtexture.cpp(61): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\3dtexture.cpp(61): warning C4996: 'strdup': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strdup. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(241) : see declaration of 'strdup'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\3dtexture.cpp(65): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(200) : see declaration of 'strtok'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\3dtexture.cpp(77): warning C4996: 'strlwr': The POSIX name for this item is deprecated. Instead, use the ISO C++ conformant name: _strlwr. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\string.h(250) : see declaration of 'strlwr'
+     1>c:\users\yamen\onedrive\desktop\graphic task\graphic_task\final task\fourthproject\3dtexture.cpp(142): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 c:\program files (x86)\microsoft visual studio 11.0\vc\include\stdio.h(218) : see declaration of 'fopen'
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.lib" /MACHINE:X86 Debug\3DTexture.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.lib" /MACHINE:X86 Debug\3DTexture.obj
+         Debug\box.obj
          Debug\camera.obj
          Debug\comedina.obj
          Debug\elevator.obj
+         Debug\fridge.obj
+         Debug\hall.obj
+         Debug\kitchen.obj
+         Debug\microwave.obj
          Debug\Model_3DS.obj
          Debug\Model_class.obj
          Debug\myModel.obj
          Debug\myPolygon.obj
          Debug\mySounds.obj
          Debug\myTexture.obj
+         Debug\ovenTable.obj
          Debug\parallelRectangle.obj
+         Debug\pharmacy.obj
+         Debug\restaurant.obj
          Debug\roomWalls.obj
+         Debug\rTable.obj
          Debug\Sound.obj
          Debug\Source.obj
+         Debug\stand1.obj
          Debug\StdAfx.obj
          Debug\table.obj
          Debug\texture.obj
          Debug\wardrobe.obj
          Debug\Wave.obj
-         FourthProject.vcxproj -> C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.exe
-     1>Done Building Project "C:\Users\USER\Desktop\GRAPHIC TASK\graphic_task\final task\FourthProject\FourthProject.vcxproj" (Build target(s)).
+         FourthProject.vcxproj -> C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\Debug\Tasks.exe
+     1>Done Building Project "C:\Users\yamen\OneDrive\Desktop\GRAPHIC TASK\graphic_task\final task\FourthProject\FourthProject.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.19
+Time Elapsed 00:00:28.89

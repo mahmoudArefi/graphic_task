@@ -97,6 +97,42 @@
     <Filter Include="Source Files\special_objects\elevator">
       <UniqueIdentifier>{40f4e1bb-910f-42d4-badf-46f8ced71be5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\restaurant">
+      <UniqueIdentifier>{0dcc2f39-7f60-4de5-baba-370ecf07c2e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\restaurant\Kitchen">
+      <UniqueIdentifier>{00120d3e-52ec-4d78-bc62-7e447a5f925b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\restaurant\Hall">
+      <UniqueIdentifier>{12511456-546c-4654-8216-700a3f8f7be4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\restaurant\objects">
+      <UniqueIdentifier>{97116eb4-693a-4346-add0-b2ccb6e39480}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\special_objects\microwave">
+      <UniqueIdentifier>{0ab3f1c3-be65-4a36-9520-c43e65a6cc68}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\special_objects\fridge">
+      <UniqueIdentifier>{5b367ab8-a016-4f2b-9c8c-b81fd60e45c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\special_objects\oven">
+      <UniqueIdentifier>{87bc0826-630c-4aaa-9661-8e0cf1ee7dfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pharmacy">
+      <UniqueIdentifier>{190459ac-36ae-462a-8155-004c2d291f5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pharmacy\objects">
+      <UniqueIdentifier>{707e6ddf-9dc0-4bc6-a595-6c0172aa050b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pharmacy\objects\stand">
+      <UniqueIdentifier>{a11b22f3-22dd-4d2e-a381-318ba0eafa26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\pharmacy\objects\box">
+      <UniqueIdentifier>{cca9b9be-54e6-4c0a-908f-4e379f06d175}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\market">
+      <UniqueIdentifier>{7cfa22f5-1ccc-41ac-b7a6-21fcd4cf2a55}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -156,6 +192,36 @@
     <ClCompile Include="elevator.cpp">
       <Filter>Source Files\special_objects\elevator</Filter>
     </ClCompile>
+    <ClCompile Include="restaurant.cpp">
+      <Filter>Source Files\restaurant</Filter>
+    </ClCompile>
+    <ClCompile Include="kitchen.cpp">
+      <Filter>Source Files\restaurant\Kitchen</Filter>
+    </ClCompile>
+    <ClCompile Include="hall.cpp">
+      <Filter>Source Files\restaurant\Hall</Filter>
+    </ClCompile>
+    <ClCompile Include="rTable.cpp">
+      <Filter>Source Files\restaurant\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="microwave.cpp">
+      <Filter>Source Files\special_objects\microwave</Filter>
+    </ClCompile>
+    <ClCompile Include="ovenTable.cpp">
+      <Filter>Source Files\special_objects\oven</Filter>
+    </ClCompile>
+    <ClCompile Include="fridge.cpp">
+      <Filter>Source Files\special_objects\fridge</Filter>
+    </ClCompile>
+    <ClCompile Include="pharmacy.cpp">
+      <Filter>Source Files\pharmacy</Filter>
+    </ClCompile>
+    <ClCompile Include="stand1.cpp">
+      <Filter>Source Files\pharmacy\objects\stand</Filter>
+    </ClCompile>
+    <ClCompile Include="box.cpp">
+      <Filter>Source Files\pharmacy\objects\box</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="comedina.h">
@@ -211,6 +277,36 @@
     </ClInclude>
     <ClInclude Include="elevator.h">
       <Filter>Source Files\special_objects\elevator</Filter>
+    </ClInclude>
+    <ClInclude Include="restaurant.h">
+      <Filter>Source Files\restaurant</Filter>
+    </ClInclude>
+    <ClInclude Include="kitchen.h">
+      <Filter>Source Files\restaurant\Kitchen</Filter>
+    </ClInclude>
+    <ClInclude Include="hall.h">
+      <Filter>Source Files\restaurant\Hall</Filter>
+    </ClInclude>
+    <ClInclude Include="rTable.h">
+      <Filter>Source Files\restaurant\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="microwave.h">
+      <Filter>Source Files\special_objects\microwave</Filter>
+    </ClInclude>
+    <ClInclude Include="ovenTable.h">
+      <Filter>Source Files\special_objects\oven</Filter>
+    </ClInclude>
+    <ClInclude Include="fridge.h">
+      <Filter>Source Files\special_objects\fridge</Filter>
+    </ClInclude>
+    <ClInclude Include="pharmacy.h">
+      <Filter>Source Files\pharmacy</Filter>
+    </ClInclude>
+    <ClInclude Include="stand1.h">
+      <Filter>Source Files\pharmacy\objects\stand</Filter>
+    </ClInclude>
+    <ClInclude Include="box.h">
+      <Filter>Source Files\pharmacy\objects\box</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

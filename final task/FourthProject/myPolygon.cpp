@@ -11,7 +11,7 @@
 
 MYPOLYGON::MYPOLYGON(){} 
 
-void MYPOLYGON::drawPolygon(float h, float w, int textureNum) {
+void MYPOLYGON::drawPolygon(float h, float w, int textureNum,float transparency) {
     float xOffset = -w * 0.500; // Offset to center the polygon horizontally
     float yOffset = -h * 0.500; // Offset to center the polygon vertically
 
@@ -23,7 +23,12 @@ void MYPOLYGON::drawPolygon(float h, float w, int textureNum) {
         glVertex3f(xOffset + w, yOffset + h, 0.0f);        // Top-right
         glVertex3f(xOffset + w, yOffset, 0.0f);            // Bottom-right
         glEnd();
-    } else {
+    } 
+	else {
+
+		 glEnable(GL_BLEND);
+         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, textureNum);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, 0x812F);
@@ -31,6 +36,8 @@ void MYPOLYGON::drawPolygon(float h, float w, int textureNum) {
 
         // Draw textured rectangle
         glBegin(GL_QUADS);
+		    glColor4f(1.0f, 1.0f, 1.0f , transparency); // 
+
         glTexCoord2f(0.0f, 0.0f); glVertex3f(xOffset, yOffset, 0.0f);          // Bottom-left
         glTexCoord2f(0.0f, 1.0f); glVertex3f(xOffset, yOffset + h, 0.0f);      // Top-left
         glTexCoord2f(1.0f, 1.0f); glVertex3f(xOffset + w, yOffset + h, 0.0f);  // Top-right
@@ -38,5 +45,6 @@ void MYPOLYGON::drawPolygon(float h, float w, int textureNum) {
         glEnd();
 
         glDisable(GL_TEXTURE_2D);
+		glDisable(GL_BLEND);
     }
 }

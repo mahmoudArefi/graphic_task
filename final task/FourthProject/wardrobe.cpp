@@ -87,43 +87,12 @@ void WARDROBE::drawWardrobeDoor(float h, float w, bool isRightDoor) {
 }
 
 
-void WARDROBE::openOrCloseDoors(){
-	
-	isDoneEditDoorState = false ;
+void WARDROBE::openOrCloseDoors(bool isOpen){
 
-	if(rotateAngle==0){
-		rotateAngle = 180 ; 
-	}
-	else {
-		rotateAngle = 0 ;
-	}
-
-	return ;
-
-	while(isDoneEditDoorState==false){
-	float r = rotateAngle ; 
-	if(previousRotateAngle<r) { 
-			rotateAngle+= 0.5 ;
-			std::cout<<rotateAngle << "increase" << std::endl ;
-	}
-	else 
-	{
-			rotateAngle-= 0.5 ;
-			std::cout<<rotateAngle << "decrease" << std::endl ;
-	}
-	previousRotateAngle = r ; 
+	if(isOpen && rotateAngle>  -100 ) {rotateAngle-=0.5;}
+	else if (!isOpen && rotateAngle<0){rotateAngle+=0.5;}
 
 
-	if(rotateAngle<=0 ) {
-		previousRotateAngle = -1 ; 
-		rotateAngle = 0 ; 
-		isDoneEditDoorState = true ; 
-	}
-	else if (rotateAngle >= 150) {
-		previousRotateAngle = 155 ; 
-		rotateAngle = 150 ; 
-		isDoneEditDoorState = true ; 
-	}
 	}
 	
-}
+//}
